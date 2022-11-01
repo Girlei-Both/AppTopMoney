@@ -9,7 +9,7 @@ Module Conexao
     Dim servidor = "localhost"
     Dim user = "root"
     Dim database = "top_money"
-    Dim password = "Dados.1gbm"
+    Dim password = ""
 
     Dim stringConexao = "server=" + servidor + "; userid= " + user + "; password= " + password + "; database= " + database + ";persistsecurityinfo=True; allowuservariables=True"
 
