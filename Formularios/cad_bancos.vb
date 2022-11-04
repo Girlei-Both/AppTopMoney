@@ -5,6 +5,8 @@ Public Class cad_bancos
     Private Sub cad_bancos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dicas()
+        Limpar()
+        BotoesEstiloInicio()
         Desabilitar()
         Listar()
 
@@ -13,26 +15,77 @@ Public Class cad_bancos
     Private Sub cad_bancos_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 
         Dicas()
+        Limpar()
+        BotoesEstiloInicio()
         Desabilitar()
         Listar()
 
     End Sub
 
-#Region "NOVO"
+#Region "BOTÕES"
 
-    Private Sub btn_menu_add_Click(sender As Object, e As EventArgs) Handles btn_menu_add.Click
-
+    'Ações dos botões primários
+    Private Sub btn_menu_add_Click(sender As Object, e As EventArgs) Handles btn_menu_add_pt.Click
         Limpar()
+        BotoesEstiloNovo()
         Habilitar()
+    End Sub
 
+    Private Sub btn_menu_clean_Click(sender As Object, e As EventArgs) Handles btn_menu_clean_pt.Click
+        Limpar()
+        BotoesEstiloInicio()
+        Desabilitar()
+    End Sub
+
+    Private Sub btn_menu_save_Click(sender As Object, e As EventArgs) Handles btn_menu_save_pt.Click
+        Salvar()
+    End Sub
+
+    Private Sub btn_menu_edit_Click(sender As Object, e As EventArgs) Handles btn_menu_edit_pt.Click
+        Editar()
+    End Sub
+
+    Private Sub btn_menu_del_Click(sender As Object, e As EventArgs) Handles btn_menu_del_pt.Click
+        Excluir()
+    End Sub
+
+    Private Sub btn_menu_relat_pt_Click(sender As Object, e As EventArgs) Handles btn_menu_relat_pt.Click
+
+    End Sub
+
+    'Funcionalidade dos botões
+    Sub BotoesEstiloInicio()
+        btn_menu_add_pt.Visible = True
+        btn_menu_save_pt.Visible = False
+        btn_menu_edit_pt.Visible = False
+        btn_menu_clean_pt.Visible = False
+        btn_menu_del_pt.Visible = False
+        btn_menu_relat_pt.Visible = False
+    End Sub
+
+    Sub BotoesEstiloNovo()
+        btn_menu_add_pt.Visible = False
+        btn_menu_save_pt.Visible = True
+        btn_menu_edit_pt.Visible = False
+        btn_menu_clean_pt.Visible = True
+        btn_menu_del_pt.Visible = False
+        btn_menu_relat_pt.Visible = False
+    End Sub
+
+    Sub BotoesEstiloEditar()
+        btn_menu_add_pt.Visible = False
+        btn_menu_save_pt.Visible = False
+        btn_menu_edit_pt.Visible = True
+        btn_menu_clean_pt.Visible = True
+        btn_menu_del_pt.Visible = True
+        btn_menu_relat_pt.Visible = False
     End Sub
 
 #End Region
 
 #Region "SALVAR"
 
-    Private Sub btn_menu_save_Click(sender As Object, e As EventArgs) Handles btn_menu_save.Click
-
+    Sub Salvar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -50,20 +103,19 @@ Public Class cad_bancos
             MsgBox("Salvo com Sucesso!!", MsgBoxStyle.Information, "Dados Salvos")
 
             Limpar()
+            BotoesEstiloInicio()
             Desabilitar()
 
         Catch ex As Exception
             MsgBox("Erro ao Salvar!! ERRO: " + ex.Message, MsgBoxStyle.Information, "Erro de processamento!")
         End Try
-
     End Sub
 
 #End Region
 
 #Region "EDITAR"
 
-    Private Sub btn_menu_edit_Click(sender As Object, e As EventArgs) Handles btn_menu_edit.Click
-
+    Sub Editar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -81,6 +133,7 @@ Public Class cad_bancos
             MsgBox("Editado com Sucesso!!", MsgBoxStyle.Information, "Dados Editados")
 
             Limpar()
+            BotoesEstiloInicio()
             Desabilitar()
 
         Catch ex As Exception
@@ -93,8 +146,7 @@ Public Class cad_bancos
 
 #Region "EXCLUIR"
 
-    Private Sub btn_menu_del_Click(sender As Object, e As EventArgs) Handles btn_menu_del.Click
-
+    Sub Excluir()
         'Teste de condição para o botão excluir
         If MsgBox("Deseja excluir o registro?", vbYesNo, "Escolha a opção") = vbYes Then
 
@@ -115,6 +167,7 @@ Public Class cad_bancos
                 MsgBox("Excluido com Sucesso!!", MsgBoxStyle.Information, "Dados Excluidos")
 
                 Limpar()
+                BotoesEstiloInicio()
                 Desabilitar()
 
             Catch ex As Exception
@@ -129,12 +182,6 @@ Public Class cad_bancos
 
 #Region "LIMPAR"
 
-    Private Sub btn_menu_clean_Click(sender As Object, e As EventArgs) Handles btn_menu_clean.Click
-
-        Limpar()
-
-    End Sub
-
     Sub Limpar()
 
         tb_id.Text = ""
@@ -146,8 +193,6 @@ Public Class cad_bancos
         tb_operacao.Text = ""
         cb_tipo.Text = ""
 
-        Desabilitar()
-
     End Sub
 
 #End Region
@@ -157,12 +202,41 @@ Public Class cad_bancos
     Sub Habilitar()
 
         'Botões
-        btn_menu_add.Enabled = True
-        btn_menu_save.Enabled = True
-        btn_menu_edit.Enabled = True
-        btn_menu_clean.Enabled = True
-        btn_menu_del.Enabled = True
-        'btn_menu_relat.Enabled = True
+        If btn_menu_add_pt.Visible = True Then
+            btn_menu_add_cz.Visible = False
+        Else
+            btn_menu_add_cz.Visible = True
+        End If
+
+        If btn_menu_save_pt.Visible = True Then
+            btn_menu_save_cz.Visible = False
+        Else
+            btn_menu_save_cz.Visible = True
+        End If
+
+        If btn_menu_edit_pt.Visible = True Then
+            btn_menu_edit_cz.Visible = False
+        Else
+            btn_menu_edit_cz.Visible = True
+        End If
+
+        If btn_menu_clean_pt.Visible = True Then
+            btn_menu_clean_cz.Visible = False
+        Else
+            btn_menu_clean_cz.Visible = True
+        End If
+
+        If btn_menu_del_pt.Visible = True Then
+            btn_menu_del_cz.Visible = False
+        Else
+            btn_menu_del_cz.Visible = True
+        End If
+
+        If btn_menu_relat_pt.Visible = True Then
+            btn_menu_relat_cz.Visible = False
+        Else
+            btn_menu_relat_cz.Visible = True
+        End If
 
         'Caixas de texto
         'tb_id.Enabled = True
@@ -193,12 +267,41 @@ Public Class cad_bancos
     Sub Desabilitar()
 
         'Botões
-        'btn_menu_add.Enabled = False
-        btn_menu_save.Enabled = False
-        btn_menu_edit.Enabled = False
-        btn_menu_clean.Enabled = False
-        btn_menu_del.Enabled = False
-        'btn_menu_relat.Enabled = False
+        If btn_menu_add_pt.Visible = True Then
+            btn_menu_add_cz.Visible = False
+        Else
+            btn_menu_add_cz.Visible = True
+        End If
+
+        If btn_menu_save_pt.Visible = True Then
+            btn_menu_save_cz.Visible = False
+        Else
+            btn_menu_save_cz.Visible = True
+        End If
+
+        If btn_menu_edit_pt.Visible = True Then
+            btn_menu_edit_cz.Visible = False
+        Else
+            btn_menu_edit_cz.Visible = True
+        End If
+
+        If btn_menu_clean_pt.Visible = True Then
+            btn_menu_clean_cz.Visible = False
+        Else
+            btn_menu_clean_cz.Visible = True
+        End If
+
+        If btn_menu_del_pt.Visible = True Then
+            btn_menu_del_cz.Visible = False
+        Else
+            btn_menu_del_cz.Visible = True
+        End If
+
+        If btn_menu_relat_pt.Visible = True Then
+            btn_menu_relat_cz.Visible = False
+        Else
+            btn_menu_relat_cz.Visible = True
+        End If
 
         'Caixas de texto
         'tb_id.Enabled = False
@@ -276,9 +379,9 @@ Public Class cad_bancos
 
     Private Sub dt_grid_form_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dt_grid_form.CellClick
 
+        Limpar()
+        BotoesEstiloEditar()
         Habilitar()
-
-        btn_menu_save.Enabled = False
 
         Dim FormGrid = dt_grid_form
 
@@ -308,12 +411,12 @@ Public Class cad_bancos
         }
 
         ' Define o texto da ToolTip para o Button, TextBox, Checkbox e Label
-        toolTip.SetToolTip(Me.btn_menu_add, "Botão para habilitar os campos.")
-        toolTip.SetToolTip(Me.btn_menu_save, "Botão para Salvar um novo registro.")
-        toolTip.SetToolTip(Me.btn_menu_edit, "Botão para Editar um registro existente.")
-        toolTip.SetToolTip(Me.btn_menu_clean, "Botão para Limpar todos os campos.")
-        toolTip.SetToolTip(Me.btn_menu_del, "Botão para Deletar um registro.")
-        toolTip.SetToolTip(Me.btn_menu_relat, "Botão para emitir um relatório.")
+        toolTip.SetToolTip(Me.btn_menu_add_pt, "Botão para habilitar os campos.")
+        toolTip.SetToolTip(Me.btn_menu_save_pt, "Botão para Salvar um novo registro.")
+        toolTip.SetToolTip(Me.btn_menu_edit_pt, "Botão para Editar um registro existente.")
+        toolTip.SetToolTip(Me.btn_menu_clean_pt, "Botão para Limpar todos os campos.")
+        toolTip.SetToolTip(Me.btn_menu_del_pt, "Botão para Deletar um registro.")
+        toolTip.SetToolTip(Me.btn_menu_relat_pt, "Botão para emitir um relatório.")
 
     End Sub
 

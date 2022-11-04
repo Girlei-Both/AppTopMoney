@@ -14,6 +14,21 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -24,6 +39,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>AppTopMoney.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,7 +64,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>img-logo.ico</ApplicationIcon>
+    <ApplicationIcon>img_logo_topmoney.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -115,6 +131,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexao.vb" />
+    <Compile Include="Formularios\cad_aplicacoes.Designer.vb">
+      <DependentUpon>cad_aplicacoes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\cad_aplicacoes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\cad_bancos.Designer.vb">
       <DependentUpon>cad_bancos.vb</DependentUpon>
     </Compile>
@@ -125,6 +147,12 @@
       <DependentUpon>cad_bens.vb</DependentUpon>
     </Compile>
     <Compile Include="Formularios\cad_bens.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\cad_documentos.Designer.vb">
+      <DependentUpon>cad_documentos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\cad_documentos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\cad_pessoa.Designer.vb">
@@ -163,11 +191,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\cad_aplicacoes.resx">
+      <DependentUpon>cad_aplicacoes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\cad_bancos.resx">
       <DependentUpon>cad_bancos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\cad_bens.resx">
       <DependentUpon>cad_bens.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\cad_documentos.resx">
+      <DependentUpon>cad_documentos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\cad_pessoa.resx">
       <DependentUpon>cad_pessoa.vb</DependentUpon>
@@ -197,9 +231,6 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\img-logo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icon-add_cz.png" />
@@ -247,13 +278,26 @@
     <None Include="Resources\icon-home-pt.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img-logo.ico" />
+    <Content Include="img_logo_topmoney.ico" />
+    <None Include="Resources\img_logo_topmoney.png" />
     <None Include="Resources\btn_pessoa.png" />
     <None Include="Resources\btn_pagadores.png" />
     <None Include="Resources\btn_gastos.png" />
     <None Include="Resources\btn_caixa.png" />
     <None Include="Resources\btn_bens.png" />
     <None Include="Resources\btn_banco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

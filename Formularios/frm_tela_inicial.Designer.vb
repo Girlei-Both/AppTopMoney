@@ -32,6 +32,7 @@ Partial Class frm_tela_inicial
         Me.menu_controle_caixa = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_bancos = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_contas_mes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_aplicacoes = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_fornecedores = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_impostos = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_pagadores = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,6 +43,7 @@ Partial Class frm_tela_inicial
         Me.btn_inicio_gastos = New System.Windows.Forms.Button()
         Me.btn_inicio_bens = New System.Windows.Forms.Button()
         Me.btn_inicio_pagadores = New System.Windows.Forms.Button()
+        Me.menu_documentos = New System.Windows.Forms.ToolStripMenuItem()
         Me.form_menu.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -70,7 +72,7 @@ Partial Class frm_tela_inicial
         '
         Me.btn_menu_config.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btn_menu_config.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btn_menu_config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.FinanceiroToolStripMenuItem, Me.menu_bens})
+        Me.btn_menu_config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.FinanceiroToolStripMenuItem, Me.menu_bens, Me.menu_documentos})
         Me.btn_menu_config.Image = Global.AppTopMoney.My.Resources.Resources.icon_conf_pt
         Me.btn_menu_config.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btn_menu_config.Name = "btn_menu_config"
@@ -98,7 +100,7 @@ Partial Class frm_tela_inicial
         '
         'FinanceiroToolStripMenuItem
         '
-        Me.FinanceiroToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_controle_caixa, Me.menu_bancos, Me.menu_contas_mes, Me.menu_fornecedores, Me.menu_impostos, Me.menu_pagadores})
+        Me.FinanceiroToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_controle_caixa, Me.menu_bancos, Me.menu_contas_mes, Me.menu_aplicacoes, Me.menu_fornecedores, Me.menu_impostos, Me.menu_pagadores})
         Me.FinanceiroToolStripMenuItem.Name = "FinanceiroToolStripMenuItem"
         Me.FinanceiroToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
         Me.FinanceiroToolStripMenuItem.Text = "Financeiro"
@@ -120,6 +122,12 @@ Partial Class frm_tela_inicial
         Me.menu_contas_mes.Name = "menu_contas_mes"
         Me.menu_contas_mes.Size = New System.Drawing.Size(180, 22)
         Me.menu_contas_mes.Text = "Contas Mensais"
+        '
+        'menu_aplicacoes
+        '
+        Me.menu_aplicacoes.Name = "menu_aplicacoes"
+        Me.menu_aplicacoes.Size = New System.Drawing.Size(180, 22)
+        Me.menu_aplicacoes.Text = "Aplicações"
         '
         'menu_fornecedores
         '
@@ -229,6 +237,12 @@ Partial Class frm_tela_inicial
         Me.btn_inicio_pagadores.TabIndex = 36
         Me.btn_inicio_pagadores.UseVisualStyleBackColor = False
         '
+        'menu_documentos
+        '
+        Me.menu_documentos.Name = "menu_documentos"
+        Me.menu_documentos.Size = New System.Drawing.Size(180, 22)
+        Me.menu_documentos.Text = "Documentos"
+        '
         'frm_tela_inicial
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -274,4 +288,6 @@ Partial Class frm_tela_inicial
     Friend WithEvents btn_inicio_gastos As Button
     Friend WithEvents btn_inicio_bens As Button
     Friend WithEvents btn_inicio_pagadores As Button
+    Friend WithEvents menu_aplicacoes As ToolStripMenuItem
+    Friend WithEvents menu_documentos As ToolStripMenuItem
 End Class

@@ -98,7 +98,7 @@ Public Class cad_bens
             Dim dataRegistro = dt_data.Value.ToString("yyyy-MM-dd")
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "INSERT INTO bens (data, descricao, valor, obs) VALUES ('" & dataRegistro & "', '" & tb_descricao.Text & "', '" & tb_valor.Text.Replace(",", ".") & "', '" & tb_obs.Text & "')"
+            sql = "INSERT INTO bens (id_pessoa, data, descricao, valor, obs) VALUES ('" & cb_id_pessoa.Text & "', '" & dataRegistro & "', '" & tb_descricao.Text & "', '" & tb_valor.Text.Replace(",", ".") & "', '" & tb_obs.Text & "')"
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -130,7 +130,7 @@ Public Class cad_bens
             Dim dataRegistro = dt_data.Value.ToString("yyyy-MM-dd")
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "UPDATE  bens SET data =  '" & dataRegistro & "', descricao =  '" & tb_descricao.Text & "', valor =  '" & tb_valor.Text.Replace(",", ".") & "', obs =  '" & tb_obs.Text & "' WHERE id =  '" & tb_id.Text & "'"
+            sql = "UPDATE  bens SET id_pessoa = '" & cb_id_pessoa.Text & "', data =  '" & dataRegistro & "', descricao =  '" & tb_descricao.Text & "', valor =  '" & tb_valor.Text.Replace(",", ".") & "', obs =  '" & tb_obs.Text & "' WHERE id =  '" & tb_id.Text & "'"
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -189,6 +189,7 @@ Public Class cad_bens
     Sub Limpar()
 
         tb_id.Text = ""
+        cb_id_pessoa.Text = ""
         dt_data.Text = Now().ToShortDateString
         tb_descricao.Text = ""
         tb_valor.Text = Format("0,00")
@@ -241,6 +242,7 @@ Public Class cad_bens
 
         'Caixas de texto
         'tb_id.Enabled = True
+        cb_id_pessoa.Enabled = True
         dt_data.Enabled = True
         tb_descricao.Enabled = True
         tb_valor.Enabled = True
@@ -248,6 +250,7 @@ Public Class cad_bens
 
         'Cor do fundo
         tb_id.BackColor = Color.Salmon
+        cb_id_pessoa.BackColor = Color.Salmon
         dt_data.BackColor = Color.Salmon
         tb_descricao.BackColor = Color.Salmon
         tb_valor.BackColor = Color.Salmon
@@ -300,6 +303,7 @@ Public Class cad_bens
 
         'Caixas de texto
         'tb_id.Enabled = False
+        cb_id_pessoa.Enabled = False
         dt_data.Enabled = False
         tb_descricao.Enabled = False
         tb_valor.Enabled = False
@@ -307,6 +311,7 @@ Public Class cad_bens
 
         'Cor do fundo
         tb_id.BackColor = Color.LightGray
+        cb_id_pessoa.BackColor = Color.LightGray
         dt_data.BackColor = Color.LightGray
         tb_descricao.BackColor = Color.LightGray
         tb_valor.BackColor = Color.LightGray
@@ -356,13 +361,14 @@ Public Class cad_bens
 
         'Ajustar os títulos das colunas
         FormGrid.Columns(0).HeaderText = "Id"
-        FormGrid.Columns(1).HeaderText = "Data"
-        FormGrid.Columns(2).HeaderText = "Descrição"
-        FormGrid.Columns(3).HeaderText = "Valor"
-        FormGrid.Columns(4).HeaderText = "Observações"
+        FormGrid.Columns(1).HeaderText = "Pessoa"
+        FormGrid.Columns(2).HeaderText = "Data"
+        FormGrid.Columns(3).HeaderText = "Descrição"
+        FormGrid.Columns(4).HeaderText = "Valor"
+        FormGrid.Columns(5).HeaderText = "Observações"
 
         'Formatação da célula em MOEDA => R$
-        FormGrid.Columns(3).DefaultCellStyle.Format = "C2"
+        FormGrid.Columns(4).DefaultCellStyle.Format = "C2"
 
     End Sub
 
@@ -375,10 +381,11 @@ Public Class cad_bens
         Dim FormGrid = dt_grid_form
 
         tb_id.Text = FormGrid.CurrentRow.Cells(0).Value
-        dt_data.Text = FormGrid.CurrentRow.Cells(1).Value
-        tb_descricao.Text = FormGrid.CurrentRow.Cells(2).Value
-        tb_valor.Text = FormGrid.CurrentRow.Cells(3).Value
-        tb_obs.Text = FormGrid.CurrentRow.Cells(4).Value
+        cb_id_pessoa.Text = FormGrid.CurrentRow.Cells(1).Value
+        dt_data.Text = FormGrid.CurrentRow.Cells(2).Value
+        tb_descricao.Text = FormGrid.CurrentRow.Cells(3).Value
+        tb_valor.Text = FormGrid.CurrentRow.Cells(4).Value
+        tb_obs.Text = FormGrid.CurrentRow.Cells(5).Value
 
     End Sub
 
