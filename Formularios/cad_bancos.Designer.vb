@@ -22,7 +22,8 @@ Partial Class cad_bancos
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(cad_bancos))
         Me.tb_cod = New System.Windows.Forms.TextBox()
         Me.lb_codigo = New System.Windows.Forms.Label()
         Me.tb_id = New System.Windows.Forms.TextBox()
@@ -39,15 +40,21 @@ Partial Class cad_bancos
         Me.lb_conta = New System.Windows.Forms.Label()
         Me.lb_tipo = New System.Windows.Forms.Label()
         Me.cb_tipo = New System.Windows.Forms.ComboBox()
-        Me.btn_menu_edit = New System.Windows.Forms.Button()
-        Me.btn_menu_save = New System.Windows.Forms.Button()
-        Me.btn_menu_relat = New System.Windows.Forms.Button()
-        Me.btn_menu_del = New System.Windows.Forms.Button()
-        Me.btn_menu_clean = New System.Windows.Forms.Button()
-        Me.btn_menu_add = New System.Windows.Forms.Button()
         Me.btn_menu_home = New System.Windows.Forms.ToolStripButton()
         Me.btn_menu_close = New System.Windows.Forms.ToolStripButton()
         Me.form_menu = New System.Windows.Forms.ToolStrip()
+        Me.btn_menu_edit_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_save_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_relat_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_del_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_clean_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_add_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_edit_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_save_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_relat_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_del_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_clean_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_add_cz = New System.Windows.Forms.Button()
         CType(Me.dt_grid_form, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.form_menu.SuspendLayout()
         Me.SuspendLayout()
@@ -83,7 +90,7 @@ Partial Class cad_bancos
         Me.tb_id.Enabled = False
         Me.tb_id.Font = New System.Drawing.Font("Eras Medium ITC", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tb_id.ForeColor = System.Drawing.Color.Snow
-        Me.tb_id.Location = New System.Drawing.Point(30, 292)
+        Me.tb_id.Location = New System.Drawing.Point(32, 302)
         Me.tb_id.MaxLength = 20
         Me.tb_id.Name = "tb_id"
         Me.tb_id.Size = New System.Drawing.Size(97, 19)
@@ -99,14 +106,14 @@ Partial Class cad_bancos
         Me.dt_grid_form.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dt_grid_form.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.dt_grid_form.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dt_grid_form.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dt_grid_form.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dt_grid_form.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dt_grid_form.EnableHeadersVisualStyles = False
         Me.dt_grid_form.GridColor = System.Drawing.Color.WhiteSmoke
@@ -272,89 +279,6 @@ Partial Class cad_bancos
         Me.cb_tipo.Size = New System.Drawing.Size(162, 27)
         Me.cb_tipo.TabIndex = 52
         '
-        'btn_menu_edit
-        '
-        Me.btn_menu_edit.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_cz
-        Me.btn_menu_edit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_edit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_edit.Enabled = False
-        Me.btn_menu_edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_edit.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_edit.Location = New System.Drawing.Point(310, 33)
-        Me.btn_menu_edit.Name = "btn_menu_edit"
-        Me.btn_menu_edit.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_edit.TabIndex = 38
-        Me.btn_menu_edit.UseVisualStyleBackColor = False
-        '
-        'btn_menu_save
-        '
-        Me.btn_menu_save.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_cz
-        Me.btn_menu_save.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_save.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_save.Enabled = False
-        Me.btn_menu_save.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_save.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_save.Location = New System.Drawing.Point(229, 33)
-        Me.btn_menu_save.Name = "btn_menu_save"
-        Me.btn_menu_save.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_save.TabIndex = 35
-        Me.btn_menu_save.UseVisualStyleBackColor = False
-        '
-        'btn_menu_relat
-        '
-        Me.btn_menu_relat.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_cz
-        Me.btn_menu_relat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_relat.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_relat.Enabled = False
-        Me.btn_menu_relat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_relat.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_relat.Location = New System.Drawing.Point(553, 33)
-        Me.btn_menu_relat.Name = "btn_menu_relat"
-        Me.btn_menu_relat.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_relat.TabIndex = 34
-        Me.btn_menu_relat.UseVisualStyleBackColor = False
-        '
-        'btn_menu_del
-        '
-        Me.btn_menu_del.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_cz
-        Me.btn_menu_del.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_del.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_del.Enabled = False
-        Me.btn_menu_del.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_del.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_del.Location = New System.Drawing.Point(472, 33)
-        Me.btn_menu_del.Name = "btn_menu_del"
-        Me.btn_menu_del.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_del.TabIndex = 33
-        Me.btn_menu_del.UseVisualStyleBackColor = False
-        '
-        'btn_menu_clean
-        '
-        Me.btn_menu_clean.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_cz
-        Me.btn_menu_clean.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_clean.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_clean.Enabled = False
-        Me.btn_menu_clean.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_clean.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_clean.Location = New System.Drawing.Point(391, 33)
-        Me.btn_menu_clean.Name = "btn_menu_clean"
-        Me.btn_menu_clean.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_clean.TabIndex = 32
-        Me.btn_menu_clean.UseVisualStyleBackColor = False
-        '
-        'btn_menu_add
-        '
-        Me.btn_menu_add.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_cz
-        Me.btn_menu_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.btn_menu_add.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btn_menu_add.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_add.Location = New System.Drawing.Point(148, 33)
-        Me.btn_menu_add.Name = "btn_menu_add"
-        Me.btn_menu_add.Size = New System.Drawing.Size(50, 50)
-        Me.btn_menu_add.TabIndex = 31
-        Me.btn_menu_add.UseVisualStyleBackColor = False
-        '
         'btn_menu_home
         '
         Me.btn_menu_home.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
@@ -386,12 +310,186 @@ Partial Class cad_bancos
         Me.form_menu.Size = New System.Drawing.Size(750, 30)
         Me.form_menu.TabIndex = 30
         '
+        'btn_menu_edit_pt
+        '
+        Me.btn_menu_edit_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_pt
+        Me.btn_menu_edit_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_edit_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_edit_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_edit_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_edit_pt.Location = New System.Drawing.Point(310, 33)
+        Me.btn_menu_edit_pt.Name = "btn_menu_edit_pt"
+        Me.btn_menu_edit_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_edit_pt.TabIndex = 67
+        Me.btn_menu_edit_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_save_pt
+        '
+        Me.btn_menu_save_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_pt
+        Me.btn_menu_save_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_save_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_save_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_save_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_save_pt.Location = New System.Drawing.Point(229, 33)
+        Me.btn_menu_save_pt.Name = "btn_menu_save_pt"
+        Me.btn_menu_save_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_save_pt.TabIndex = 66
+        Me.btn_menu_save_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_relat_pt
+        '
+        Me.btn_menu_relat_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_pt
+        Me.btn_menu_relat_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_relat_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_relat_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_relat_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_relat_pt.Location = New System.Drawing.Point(553, 33)
+        Me.btn_menu_relat_pt.Name = "btn_menu_relat_pt"
+        Me.btn_menu_relat_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_relat_pt.TabIndex = 65
+        Me.btn_menu_relat_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_del_pt
+        '
+        Me.btn_menu_del_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_pt
+        Me.btn_menu_del_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_del_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_del_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_del_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_del_pt.Location = New System.Drawing.Point(472, 33)
+        Me.btn_menu_del_pt.Name = "btn_menu_del_pt"
+        Me.btn_menu_del_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_del_pt.TabIndex = 64
+        Me.btn_menu_del_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_clean_pt
+        '
+        Me.btn_menu_clean_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_pt
+        Me.btn_menu_clean_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_clean_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_clean_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_clean_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_clean_pt.Location = New System.Drawing.Point(391, 33)
+        Me.btn_menu_clean_pt.Name = "btn_menu_clean_pt"
+        Me.btn_menu_clean_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_clean_pt.TabIndex = 63
+        Me.btn_menu_clean_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_add_pt
+        '
+        Me.btn_menu_add_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_pt
+        Me.btn_menu_add_pt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_add_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_add_pt.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_add_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_add_pt.Location = New System.Drawing.Point(148, 33)
+        Me.btn_menu_add_pt.Name = "btn_menu_add_pt"
+        Me.btn_menu_add_pt.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_add_pt.TabIndex = 62
+        Me.btn_menu_add_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_edit_cz
+        '
+        Me.btn_menu_edit_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_cz
+        Me.btn_menu_edit_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_edit_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_edit_cz.Enabled = False
+        Me.btn_menu_edit_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_edit_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_edit_cz.Location = New System.Drawing.Point(310, 33)
+        Me.btn_menu_edit_cz.Name = "btn_menu_edit_cz"
+        Me.btn_menu_edit_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_edit_cz.TabIndex = 73
+        Me.btn_menu_edit_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_save_cz
+        '
+        Me.btn_menu_save_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_cz
+        Me.btn_menu_save_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_save_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_save_cz.Enabled = False
+        Me.btn_menu_save_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_save_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_save_cz.Location = New System.Drawing.Point(229, 33)
+        Me.btn_menu_save_cz.Name = "btn_menu_save_cz"
+        Me.btn_menu_save_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_save_cz.TabIndex = 72
+        Me.btn_menu_save_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_relat_cz
+        '
+        Me.btn_menu_relat_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_cz
+        Me.btn_menu_relat_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_relat_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_relat_cz.Enabled = False
+        Me.btn_menu_relat_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_relat_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_relat_cz.Location = New System.Drawing.Point(553, 33)
+        Me.btn_menu_relat_cz.Name = "btn_menu_relat_cz"
+        Me.btn_menu_relat_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_relat_cz.TabIndex = 71
+        Me.btn_menu_relat_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_del_cz
+        '
+        Me.btn_menu_del_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_cz
+        Me.btn_menu_del_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_del_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_del_cz.Enabled = False
+        Me.btn_menu_del_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_del_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_del_cz.Location = New System.Drawing.Point(472, 33)
+        Me.btn_menu_del_cz.Name = "btn_menu_del_cz"
+        Me.btn_menu_del_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_del_cz.TabIndex = 70
+        Me.btn_menu_del_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_clean_cz
+        '
+        Me.btn_menu_clean_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_cz
+        Me.btn_menu_clean_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_clean_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_clean_cz.Enabled = False
+        Me.btn_menu_clean_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_clean_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_clean_cz.Location = New System.Drawing.Point(391, 33)
+        Me.btn_menu_clean_cz.Name = "btn_menu_clean_cz"
+        Me.btn_menu_clean_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_clean_cz.TabIndex = 69
+        Me.btn_menu_clean_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_add_cz
+        '
+        Me.btn_menu_add_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_cz
+        Me.btn_menu_add_cz.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btn_menu_add_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_add_cz.Enabled = False
+        Me.btn_menu_add_cz.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btn_menu_add_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_add_cz.Location = New System.Drawing.Point(148, 33)
+        Me.btn_menu_add_cz.Name = "btn_menu_add_cz"
+        Me.btn_menu_add_cz.Size = New System.Drawing.Size(50, 50)
+        Me.btn_menu_add_cz.TabIndex = 68
+        Me.btn_menu_add_cz.UseVisualStyleBackColor = False
+        '
         'cad_bancos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Snow
         Me.ClientSize = New System.Drawing.Size(750, 500)
+        Me.Controls.Add(Me.btn_menu_edit_pt)
+        Me.Controls.Add(Me.btn_menu_save_pt)
+        Me.Controls.Add(Me.btn_menu_relat_pt)
+        Me.Controls.Add(Me.btn_menu_del_pt)
+        Me.Controls.Add(Me.btn_menu_clean_pt)
+        Me.Controls.Add(Me.btn_menu_add_pt)
+        Me.Controls.Add(Me.btn_menu_edit_cz)
+        Me.Controls.Add(Me.btn_menu_save_cz)
+        Me.Controls.Add(Me.btn_menu_relat_cz)
+        Me.Controls.Add(Me.btn_menu_del_cz)
+        Me.Controls.Add(Me.btn_menu_clean_cz)
+        Me.Controls.Add(Me.btn_menu_add_cz)
         Me.Controls.Add(Me.cb_tipo)
         Me.Controls.Add(Me.lb_tipo)
         Me.Controls.Add(Me.tb_operacao)
@@ -406,16 +504,11 @@ Partial Class cad_bancos
         Me.Controls.Add(Me.lb_instituicao)
         Me.Controls.Add(Me.tb_id)
         Me.Controls.Add(Me.dt_grid_form)
-        Me.Controls.Add(Me.btn_menu_edit)
         Me.Controls.Add(Me.tb_cod)
         Me.Controls.Add(Me.lb_codigo)
-        Me.Controls.Add(Me.btn_menu_save)
-        Me.Controls.Add(Me.btn_menu_relat)
-        Me.Controls.Add(Me.btn_menu_del)
-        Me.Controls.Add(Me.btn_menu_clean)
-        Me.Controls.Add(Me.btn_menu_add)
         Me.Controls.Add(Me.form_menu)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "cad_bancos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -427,14 +520,8 @@ Partial Class cad_bancos
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents btn_menu_edit As Button
     Friend WithEvents tb_cod As TextBox
     Friend WithEvents lb_codigo As Label
-    Friend WithEvents btn_menu_save As Button
-    Friend WithEvents btn_menu_relat As Button
-    Friend WithEvents btn_menu_del As Button
-    Friend WithEvents btn_menu_clean As Button
-    Friend WithEvents btn_menu_add As Button
     Friend WithEvents tb_id As TextBox
     Friend WithEvents dt_grid_form As DataGridView
     Friend WithEvents tb_instituicao As TextBox
@@ -452,4 +539,16 @@ Partial Class cad_bancos
     Friend WithEvents btn_menu_home As ToolStripButton
     Friend WithEvents btn_menu_close As ToolStripButton
     Friend WithEvents form_menu As ToolStrip
+    Friend WithEvents btn_menu_edit_pt As Button
+    Friend WithEvents btn_menu_save_pt As Button
+    Friend WithEvents btn_menu_relat_pt As Button
+    Friend WithEvents btn_menu_del_pt As Button
+    Friend WithEvents btn_menu_clean_pt As Button
+    Friend WithEvents btn_menu_add_pt As Button
+    Friend WithEvents btn_menu_edit_cz As Button
+    Friend WithEvents btn_menu_save_cz As Button
+    Friend WithEvents btn_menu_relat_cz As Button
+    Friend WithEvents btn_menu_del_cz As Button
+    Friend WithEvents btn_menu_clean_cz As Button
+    Friend WithEvents btn_menu_add_cz As Button
 End Class

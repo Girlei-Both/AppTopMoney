@@ -25,17 +25,21 @@ Partial Class frm_tela_inicial
         Me.form_menu = New System.Windows.Forms.ToolStrip()
         Me.btn_menu_close = New System.Windows.Forms.ToolStripButton()
         Me.btn_menu_config = New System.Windows.Forms.ToolStripSplitButton()
-        Me.CadastrosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_cadastros = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_pessoa_fisica = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_pessoa_juridica = New System.Windows.Forms.ToolStripMenuItem()
-        Me.FinanceiroToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_financeiro = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_gastos_mes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.menu_controle_caixa = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_aplicacoes = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.menu_bancos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.menu_contas_mes = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_fornecedores = New System.Windows.Forms.ToolStripMenuItem()
-        Me.menu_impostos = New System.Windows.Forms.ToolStripMenuItem()
         Me.menu_pagadores = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.menu_bens = New System.Windows.Forms.ToolStripMenuItem()
+        Me.menu_documentos = New System.Windows.Forms.ToolStripMenuItem()
         Me.btn_inicio_banco = New System.Windows.Forms.Button()
         Me.btn_inicio_caixa = New System.Windows.Forms.Button()
         Me.btn_inicio_pessoa = New System.Windows.Forms.Button()
@@ -70,19 +74,19 @@ Partial Class frm_tela_inicial
         '
         Me.btn_menu_config.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.btn_menu_config.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.btn_menu_config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CadastrosToolStripMenuItem, Me.FinanceiroToolStripMenuItem, Me.menu_bens})
+        Me.btn_menu_config.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_cadastros, Me.menu_financeiro, Me.ToolStripSeparator3, Me.menu_bens, Me.menu_documentos})
         Me.btn_menu_config.Image = Global.AppTopMoney.My.Resources.Resources.icon_conf_pt
         Me.btn_menu_config.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.btn_menu_config.Name = "btn_menu_config"
         Me.btn_menu_config.Size = New System.Drawing.Size(41, 29)
         Me.btn_menu_config.Text = "Formulários"
         '
-        'CadastrosToolStripMenuItem
+        'menu_cadastros
         '
-        Me.CadastrosToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_pessoa_fisica, Me.menu_pessoa_juridica})
-        Me.CadastrosToolStripMenuItem.Name = "CadastrosToolStripMenuItem"
-        Me.CadastrosToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.CadastrosToolStripMenuItem.Text = "Cadastros"
+        Me.menu_cadastros.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_pessoa_fisica, Me.menu_pessoa_juridica})
+        Me.menu_cadastros.Name = "menu_cadastros"
+        Me.menu_cadastros.Size = New System.Drawing.Size(180, 22)
+        Me.menu_cadastros.Text = "Cadastros"
         '
         'menu_pessoa_fisica
         '
@@ -96,12 +100,23 @@ Partial Class frm_tela_inicial
         Me.menu_pessoa_juridica.Size = New System.Drawing.Size(180, 22)
         Me.menu_pessoa_juridica.Text = "Pessoa Jurídica"
         '
-        'FinanceiroToolStripMenuItem
+        'menu_financeiro
         '
-        Me.FinanceiroToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_controle_caixa, Me.menu_bancos, Me.menu_contas_mes, Me.menu_fornecedores, Me.menu_impostos, Me.menu_pagadores})
-        Me.FinanceiroToolStripMenuItem.Name = "FinanceiroToolStripMenuItem"
-        Me.FinanceiroToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
-        Me.FinanceiroToolStripMenuItem.Text = "Financeiro"
+        Me.menu_financeiro.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.menu_gastos_mes, Me.ToolStripSeparator1, Me.menu_controle_caixa, Me.menu_aplicacoes, Me.ToolStripSeparator2, Me.menu_bancos, Me.menu_fornecedores, Me.menu_pagadores})
+        Me.menu_financeiro.Name = "menu_financeiro"
+        Me.menu_financeiro.Size = New System.Drawing.Size(180, 22)
+        Me.menu_financeiro.Text = "Financeiro"
+        '
+        'menu_gastos_mes
+        '
+        Me.menu_gastos_mes.Name = "menu_gastos_mes"
+        Me.menu_gastos_mes.Size = New System.Drawing.Size(180, 22)
+        Me.menu_gastos_mes.Text = "Gastos Mensais"
+        '
+        'ToolStripSeparator1
+        '
+        Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'menu_controle_caixa
         '
@@ -109,17 +124,22 @@ Partial Class frm_tela_inicial
         Me.menu_controle_caixa.Size = New System.Drawing.Size(180, 22)
         Me.menu_controle_caixa.Text = "Controle de Caixa"
         '
+        'menu_aplicacoes
+        '
+        Me.menu_aplicacoes.Name = "menu_aplicacoes"
+        Me.menu_aplicacoes.Size = New System.Drawing.Size(180, 22)
+        Me.menu_aplicacoes.Text = "Aplicações"
+        '
+        'ToolStripSeparator2
+        '
+        Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        '
         'menu_bancos
         '
         Me.menu_bancos.Name = "menu_bancos"
         Me.menu_bancos.Size = New System.Drawing.Size(180, 22)
         Me.menu_bancos.Text = "Bancos"
-        '
-        'menu_contas_mes
-        '
-        Me.menu_contas_mes.Name = "menu_contas_mes"
-        Me.menu_contas_mes.Size = New System.Drawing.Size(180, 22)
-        Me.menu_contas_mes.Text = "Contas Mensais"
         '
         'menu_fornecedores
         '
@@ -127,23 +147,28 @@ Partial Class frm_tela_inicial
         Me.menu_fornecedores.Size = New System.Drawing.Size(180, 22)
         Me.menu_fornecedores.Text = "Fornecedores"
         '
-        'menu_impostos
-        '
-        Me.menu_impostos.Name = "menu_impostos"
-        Me.menu_impostos.Size = New System.Drawing.Size(180, 22)
-        Me.menu_impostos.Text = "Impostos"
-        '
         'menu_pagadores
         '
         Me.menu_pagadores.Name = "menu_pagadores"
         Me.menu_pagadores.Size = New System.Drawing.Size(180, 22)
         Me.menu_pagadores.Text = "Pagadores"
         '
+        'ToolStripSeparator3
+        '
+        Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        '
         'menu_bens
         '
         Me.menu_bens.Name = "menu_bens"
         Me.menu_bens.Size = New System.Drawing.Size(180, 22)
         Me.menu_bens.Text = "Bens"
+        '
+        'menu_documentos
+        '
+        Me.menu_documentos.Name = "menu_documentos"
+        Me.menu_documentos.Size = New System.Drawing.Size(180, 22)
+        Me.menu_documentos.Text = "Documentos"
         '
         'btn_inicio_banco
         '
@@ -167,7 +192,7 @@ Partial Class frm_tela_inicial
         Me.btn_inicio_caixa.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_inicio_caixa.ForeColor = System.Drawing.Color.Transparent
         Me.btn_inicio_caixa.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btn_inicio_caixa.Location = New System.Drawing.Point(300, 72)
+        Me.btn_inicio_caixa.Location = New System.Drawing.Point(475, 228)
         Me.btn_inicio_caixa.Name = "btn_inicio_caixa"
         Me.btn_inicio_caixa.Size = New System.Drawing.Size(150, 150)
         Me.btn_inicio_caixa.TabIndex = 34
@@ -195,7 +220,7 @@ Partial Class frm_tela_inicial
         Me.btn_inicio_gastos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btn_inicio_gastos.ForeColor = System.Drawing.Color.Transparent
         Me.btn_inicio_gastos.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.btn_inicio_gastos.Location = New System.Drawing.Point(475, 228)
+        Me.btn_inicio_gastos.Location = New System.Drawing.Point(300, 72)
         Me.btn_inicio_gastos.Name = "btn_inicio_gastos"
         Me.btn_inicio_gastos.Size = New System.Drawing.Size(150, 150)
         Me.btn_inicio_gastos.TabIndex = 38
@@ -257,15 +282,14 @@ Partial Class frm_tela_inicial
     Friend WithEvents form_menu As ToolStrip
     Friend WithEvents btn_menu_close As ToolStripButton
     Friend WithEvents btn_menu_config As ToolStripSplitButton
-    Friend WithEvents CadastrosToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents menu_cadastros As ToolStripMenuItem
     Friend WithEvents menu_pessoa_fisica As ToolStripMenuItem
     Friend WithEvents menu_pessoa_juridica As ToolStripMenuItem
-    Friend WithEvents FinanceiroToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents menu_financeiro As ToolStripMenuItem
     Friend WithEvents menu_controle_caixa As ToolStripMenuItem
     Friend WithEvents menu_bancos As ToolStripMenuItem
-    Friend WithEvents menu_contas_mes As ToolStripMenuItem
+    Friend WithEvents menu_gastos_mes As ToolStripMenuItem
     Friend WithEvents menu_fornecedores As ToolStripMenuItem
-    Friend WithEvents menu_impostos As ToolStripMenuItem
     Friend WithEvents menu_pagadores As ToolStripMenuItem
     Friend WithEvents menu_bens As ToolStripMenuItem
     Friend WithEvents btn_inicio_pessoa As Button
@@ -274,4 +298,9 @@ Partial Class frm_tela_inicial
     Friend WithEvents btn_inicio_gastos As Button
     Friend WithEvents btn_inicio_bens As Button
     Friend WithEvents btn_inicio_pagadores As Button
+    Friend WithEvents menu_aplicacoes As ToolStripMenuItem
+    Friend WithEvents menu_documentos As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator1 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator2 As ToolStripSeparator
+    Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
 End Class

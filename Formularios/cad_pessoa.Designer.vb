@@ -34,7 +34,6 @@ Partial Class cad_pessoa
         Me.lb_email = New System.Windows.Forms.Label()
         Me.tb_cep = New System.Windows.Forms.TextBox()
         Me.lb_cep = New System.Windows.Forms.Label()
-        Me.tb_estado = New System.Windows.Forms.TextBox()
         Me.lb_estado = New System.Windows.Forms.Label()
         Me.tb_fone = New System.Windows.Forms.TextBox()
         Me.lb_fone = New System.Windows.Forms.Label()
@@ -47,12 +46,19 @@ Partial Class cad_pessoa
         Me.form_menu = New System.Windows.Forms.ToolStrip()
         Me.btn_menu_home = New System.Windows.Forms.ToolStripButton()
         Me.btn_menu_close = New System.Windows.Forms.ToolStripButton()
-        Me.btn_menu_edit = New System.Windows.Forms.Button()
-        Me.btn_menu_save = New System.Windows.Forms.Button()
-        Me.btn_menu_relat = New System.Windows.Forms.Button()
-        Me.btn_menu_del = New System.Windows.Forms.Button()
-        Me.btn_menu_clean = New System.Windows.Forms.Button()
-        Me.btn_menu_add = New System.Windows.Forms.Button()
+        Me.btn_menu_edit_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_save_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_relat_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_del_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_clean_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_add_pt = New System.Windows.Forms.Button()
+        Me.btn_menu_edit_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_save_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_relat_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_del_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_clean_cz = New System.Windows.Forms.Button()
+        Me.btn_menu_add_cz = New System.Windows.Forms.Button()
+        Me.cb_estado = New System.Windows.Forms.ComboBox()
         CType(Me.dt_grid_form, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.form_menu.SuspendLayout()
         Me.SuspendLayout()
@@ -121,14 +127,6 @@ Partial Class cad_pessoa
         '
         resources.ApplyResources(Me.lb_cep, "lb_cep")
         Me.lb_cep.Name = "lb_cep"
-        '
-        'tb_estado
-        '
-        Me.tb_estado.BackColor = System.Drawing.Color.Salmon
-        Me.tb_estado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tb_estado, "tb_estado")
-        Me.tb_estado.ForeColor = System.Drawing.Color.Snow
-        Me.tb_estado.Name = "tb_estado"
         '
         'lb_estado
         '
@@ -240,72 +238,147 @@ Partial Class cad_pessoa
         Me.btn_menu_close.Image = Global.AppTopMoney.My.Resources.Resources.icon_close_pt
         Me.btn_menu_close.Name = "btn_menu_close"
         '
-        'btn_menu_edit
+        'btn_menu_edit_pt
         '
-        Me.btn_menu_edit.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_cz
-        resources.ApplyResources(Me.btn_menu_edit, "btn_menu_edit")
-        Me.btn_menu_edit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_edit.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_edit.Name = "btn_menu_edit"
-        Me.btn_menu_edit.UseVisualStyleBackColor = False
+        Me.btn_menu_edit_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_pt
+        resources.ApplyResources(Me.btn_menu_edit_pt, "btn_menu_edit_pt")
+        Me.btn_menu_edit_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_edit_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_edit_pt.Name = "btn_menu_edit_pt"
+        Me.btn_menu_edit_pt.UseVisualStyleBackColor = False
         '
-        'btn_menu_save
+        'btn_menu_save_pt
         '
-        Me.btn_menu_save.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_cz
-        resources.ApplyResources(Me.btn_menu_save, "btn_menu_save")
-        Me.btn_menu_save.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_save.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_save.Name = "btn_menu_save"
-        Me.btn_menu_save.UseVisualStyleBackColor = False
+        Me.btn_menu_save_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_pt
+        resources.ApplyResources(Me.btn_menu_save_pt, "btn_menu_save_pt")
+        Me.btn_menu_save_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_save_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_save_pt.Name = "btn_menu_save_pt"
+        Me.btn_menu_save_pt.UseVisualStyleBackColor = False
         '
-        'btn_menu_relat
+        'btn_menu_relat_pt
         '
-        Me.btn_menu_relat.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_cz
-        resources.ApplyResources(Me.btn_menu_relat, "btn_menu_relat")
-        Me.btn_menu_relat.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_relat.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_relat.Name = "btn_menu_relat"
-        Me.btn_menu_relat.UseVisualStyleBackColor = False
+        Me.btn_menu_relat_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_pt
+        resources.ApplyResources(Me.btn_menu_relat_pt, "btn_menu_relat_pt")
+        Me.btn_menu_relat_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_relat_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_relat_pt.Name = "btn_menu_relat_pt"
+        Me.btn_menu_relat_pt.UseVisualStyleBackColor = False
         '
-        'btn_menu_del
+        'btn_menu_del_pt
         '
-        Me.btn_menu_del.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_cz
-        resources.ApplyResources(Me.btn_menu_del, "btn_menu_del")
-        Me.btn_menu_del.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_del.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_del.Name = "btn_menu_del"
-        Me.btn_menu_del.UseVisualStyleBackColor = False
+        Me.btn_menu_del_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_pt
+        resources.ApplyResources(Me.btn_menu_del_pt, "btn_menu_del_pt")
+        Me.btn_menu_del_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_del_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_del_pt.Name = "btn_menu_del_pt"
+        Me.btn_menu_del_pt.UseVisualStyleBackColor = False
         '
-        'btn_menu_clean
+        'btn_menu_clean_pt
         '
-        Me.btn_menu_clean.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_cz
-        resources.ApplyResources(Me.btn_menu_clean, "btn_menu_clean")
-        Me.btn_menu_clean.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_clean.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_clean.Name = "btn_menu_clean"
-        Me.btn_menu_clean.UseVisualStyleBackColor = False
+        Me.btn_menu_clean_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_pt
+        resources.ApplyResources(Me.btn_menu_clean_pt, "btn_menu_clean_pt")
+        Me.btn_menu_clean_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_clean_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_clean_pt.Name = "btn_menu_clean_pt"
+        Me.btn_menu_clean_pt.UseVisualStyleBackColor = False
         '
-        'btn_menu_add
+        'btn_menu_add_pt
         '
-        Me.btn_menu_add.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_cz
-        resources.ApplyResources(Me.btn_menu_add, "btn_menu_add")
-        Me.btn_menu_add.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btn_menu_add.ForeColor = System.Drawing.Color.Transparent
-        Me.btn_menu_add.Name = "btn_menu_add"
-        Me.btn_menu_add.UseVisualStyleBackColor = False
+        Me.btn_menu_add_pt.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_pt
+        resources.ApplyResources(Me.btn_menu_add_pt, "btn_menu_add_pt")
+        Me.btn_menu_add_pt.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_add_pt.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_add_pt.Name = "btn_menu_add_pt"
+        Me.btn_menu_add_pt.UseVisualStyleBackColor = False
+        '
+        'btn_menu_edit_cz
+        '
+        Me.btn_menu_edit_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_edit_cz
+        resources.ApplyResources(Me.btn_menu_edit_cz, "btn_menu_edit_cz")
+        Me.btn_menu_edit_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_edit_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_edit_cz.Name = "btn_menu_edit_cz"
+        Me.btn_menu_edit_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_save_cz
+        '
+        Me.btn_menu_save_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_save_cz
+        resources.ApplyResources(Me.btn_menu_save_cz, "btn_menu_save_cz")
+        Me.btn_menu_save_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_save_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_save_cz.Name = "btn_menu_save_cz"
+        Me.btn_menu_save_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_relat_cz
+        '
+        Me.btn_menu_relat_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_print_cz
+        resources.ApplyResources(Me.btn_menu_relat_cz, "btn_menu_relat_cz")
+        Me.btn_menu_relat_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_relat_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_relat_cz.Name = "btn_menu_relat_cz"
+        Me.btn_menu_relat_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_del_cz
+        '
+        Me.btn_menu_del_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_delet_cz
+        resources.ApplyResources(Me.btn_menu_del_cz, "btn_menu_del_cz")
+        Me.btn_menu_del_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_del_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_del_cz.Name = "btn_menu_del_cz"
+        Me.btn_menu_del_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_clean_cz
+        '
+        Me.btn_menu_clean_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_clean_cz
+        resources.ApplyResources(Me.btn_menu_clean_cz, "btn_menu_clean_cz")
+        Me.btn_menu_clean_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_clean_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_clean_cz.Name = "btn_menu_clean_cz"
+        Me.btn_menu_clean_cz.UseVisualStyleBackColor = False
+        '
+        'btn_menu_add_cz
+        '
+        Me.btn_menu_add_cz.BackgroundImage = Global.AppTopMoney.My.Resources.Resources.icon_add_cz
+        resources.ApplyResources(Me.btn_menu_add_cz, "btn_menu_add_cz")
+        Me.btn_menu_add_cz.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btn_menu_add_cz.ForeColor = System.Drawing.Color.Transparent
+        Me.btn_menu_add_cz.Name = "btn_menu_add_cz"
+        Me.btn_menu_add_cz.UseVisualStyleBackColor = False
+        '
+        'cb_estado
+        '
+        Me.cb_estado.BackColor = System.Drawing.Color.Salmon
+        resources.ApplyResources(Me.cb_estado, "cb_estado")
+        Me.cb_estado.ForeColor = System.Drawing.Color.Snow
+        Me.cb_estado.FormattingEnabled = True
+        Me.cb_estado.Items.AddRange(New Object() {resources.GetString("cb_estado.Items"), resources.GetString("cb_estado.Items1"), resources.GetString("cb_estado.Items2"), resources.GetString("cb_estado.Items3"), resources.GetString("cb_estado.Items4"), resources.GetString("cb_estado.Items5"), resources.GetString("cb_estado.Items6"), resources.GetString("cb_estado.Items7"), resources.GetString("cb_estado.Items8"), resources.GetString("cb_estado.Items9"), resources.GetString("cb_estado.Items10"), resources.GetString("cb_estado.Items11"), resources.GetString("cb_estado.Items12"), resources.GetString("cb_estado.Items13"), resources.GetString("cb_estado.Items14"), resources.GetString("cb_estado.Items15"), resources.GetString("cb_estado.Items16"), resources.GetString("cb_estado.Items17"), resources.GetString("cb_estado.Items18"), resources.GetString("cb_estado.Items19"), resources.GetString("cb_estado.Items20"), resources.GetString("cb_estado.Items21"), resources.GetString("cb_estado.Items22"), resources.GetString("cb_estado.Items23"), resources.GetString("cb_estado.Items24"), resources.GetString("cb_estado.Items25"), resources.GetString("cb_estado.Items26")})
+        Me.cb_estado.Name = "cb_estado"
         '
         'cad_pessoa
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Snow
+        Me.Controls.Add(Me.cb_estado)
+        Me.Controls.Add(Me.btn_menu_edit_pt)
+        Me.Controls.Add(Me.btn_menu_save_pt)
+        Me.Controls.Add(Me.btn_menu_relat_pt)
+        Me.Controls.Add(Me.btn_menu_del_pt)
+        Me.Controls.Add(Me.btn_menu_clean_pt)
+        Me.Controls.Add(Me.btn_menu_add_pt)
+        Me.Controls.Add(Me.btn_menu_edit_cz)
+        Me.Controls.Add(Me.btn_menu_save_cz)
+        Me.Controls.Add(Me.btn_menu_relat_cz)
+        Me.Controls.Add(Me.btn_menu_del_cz)
+        Me.Controls.Add(Me.btn_menu_clean_cz)
+        Me.Controls.Add(Me.btn_menu_add_cz)
         Me.Controls.Add(Me.form_menu)
         Me.Controls.Add(Me.tb_senha)
         Me.Controls.Add(Me.lb_senha)
         Me.Controls.Add(Me.tb_usuario)
         Me.Controls.Add(Me.lb_usuario)
         Me.Controls.Add(Me.tb_id)
-        Me.Controls.Add(Me.btn_menu_edit)
         Me.Controls.Add(Me.dt_grid_form)
         Me.Controls.Add(Me.tb_fone)
         Me.Controls.Add(Me.lb_fone)
@@ -313,7 +386,6 @@ Partial Class cad_pessoa
         Me.Controls.Add(Me.lb_email)
         Me.Controls.Add(Me.tb_cep)
         Me.Controls.Add(Me.lb_cep)
-        Me.Controls.Add(Me.tb_estado)
         Me.Controls.Add(Me.lb_estado)
         Me.Controls.Add(Me.tb_cidade)
         Me.Controls.Add(Me.lb_cidade)
@@ -321,11 +393,6 @@ Partial Class cad_pessoa
         Me.Controls.Add(Me.lb_endereco)
         Me.Controls.Add(Me.tb_nome)
         Me.Controls.Add(Me.lb_nome)
-        Me.Controls.Add(Me.btn_menu_save)
-        Me.Controls.Add(Me.btn_menu_relat)
-        Me.Controls.Add(Me.btn_menu_del)
-        Me.Controls.Add(Me.btn_menu_clean)
-        Me.Controls.Add(Me.btn_menu_add)
         Me.Cursor = System.Windows.Forms.Cursors.Arrow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.MaximizeBox = False
@@ -337,12 +404,6 @@ Partial Class cad_pessoa
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents btn_menu_add As Button
-    Friend WithEvents btn_menu_clean As Button
-    Friend WithEvents btn_menu_del As Button
-    Friend WithEvents btn_menu_relat As Button
-    Friend WithEvents btn_menu_save As Button
     Friend WithEvents lb_nome As Label
     Friend WithEvents tb_nome As TextBox
     Friend WithEvents tb_endereco As TextBox
@@ -353,12 +414,10 @@ Partial Class cad_pessoa
     Friend WithEvents lb_email As Label
     Friend WithEvents tb_cep As TextBox
     Friend WithEvents lb_cep As Label
-    Friend WithEvents tb_estado As TextBox
     Friend WithEvents lb_estado As Label
     Friend WithEvents tb_fone As TextBox
     Friend WithEvents lb_fone As Label
     Friend WithEvents dt_grid_form As DataGridView
-    Friend WithEvents btn_menu_edit As Button
     Friend WithEvents tb_id As TextBox
     Friend WithEvents tb_usuario As TextBox
     Friend WithEvents lb_usuario As Label
@@ -367,4 +426,17 @@ Partial Class cad_pessoa
     Friend WithEvents form_menu As ToolStrip
     Friend WithEvents btn_menu_home As ToolStripButton
     Friend WithEvents btn_menu_close As ToolStripButton
+    Friend WithEvents btn_menu_edit_pt As Button
+    Friend WithEvents btn_menu_save_pt As Button
+    Friend WithEvents btn_menu_relat_pt As Button
+    Friend WithEvents btn_menu_del_pt As Button
+    Friend WithEvents btn_menu_clean_pt As Button
+    Friend WithEvents btn_menu_add_pt As Button
+    Friend WithEvents btn_menu_edit_cz As Button
+    Friend WithEvents btn_menu_save_cz As Button
+    Friend WithEvents btn_menu_relat_cz As Button
+    Friend WithEvents btn_menu_del_cz As Button
+    Friend WithEvents btn_menu_clean_cz As Button
+    Friend WithEvents btn_menu_add_cz As Button
+    Friend WithEvents cb_estado As ComboBox
 End Class

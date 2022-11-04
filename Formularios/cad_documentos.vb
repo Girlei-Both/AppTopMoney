@@ -1,8 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class cad_pessoa
-
-    Private Sub cad_pessoa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+Public Class cad_documentos
+    Private Sub cad_documentos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dicas()
         Limpar()
@@ -12,7 +11,7 @@ Public Class cad_pessoa
 
     End Sub
 
-    Private Sub cad_pessoa_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Private Sub cad_documentos_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 
         Dicas()
         Limpar()
@@ -96,7 +95,7 @@ Public Class cad_pessoa
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "INSERT INTO pessoa (nome, endereco, cidade, estado, cep, email, telefone, usuario, senha) VALUES ('" & tb_nome.Text & "', '" & tb_endereco.Text & "', '" & tb_cidade.Text & "', '" & cb_estado.Text & "', '" & tb_cep.Text & "', '" & tb_email.Text & "', '" & tb_fone.Text & "', '" & tb_usuario.Text & "', '" & tb_senha.Text & "')"
+            sql = "INSERT INTO documentos (id_pessoa, cpf, rg, cnh, eleitor, passaport) VALUES ('" & cb_id_pessoa.SelectedValue & "', '" & tb_cpf.Text & "', '" & tb_rg.Text & "', '" & tb_cnh.Text & "', '" & tb_eleitor.Text & "', '" & tb_passaport.Text & "')"
 
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
@@ -110,7 +109,6 @@ Public Class cad_pessoa
         Catch ex As Exception
             MsgBox("Erro ao Salvar!! ERRO: " + ex.Message, MsgBoxStyle.Information, "Erro de processamento!")
         End Try
-
     End Sub
 
 #End Region
@@ -128,7 +126,7 @@ Public Class cad_pessoa
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "UPDATE  pessoa SET nome =  '" & tb_nome.Text & "', endereco =  '" & tb_endereco.Text & "', cidade =  '" & tb_cidade.Text & "', estado =  '" & cb_estado.Text & "', cep =  '" & tb_cep.Text & "', email =  '" & tb_email.Text & "', telefone =  '" & tb_fone.Text & "', usuario =  '" & tb_usuario.Text & "', senha = '" & tb_senha.Text & "'   WHERE id =  '" & tb_id.Text & "'"
+            sql = "UPDATE  documentos SET id_pessoa = '" & cb_id_pessoa.SelectedValue & "', cpf = '" & tb_cpf.Text & "', rg = '" & tb_rg.Text & "', cnh = '" & tb_cnh.Text & "', eleitor = '" & tb_eleitor.Text & "', passaport = '" & tb_passaport.Text & "' WHERE id = '" & tb_id.Text & "'"
 
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
@@ -164,7 +162,7 @@ Public Class cad_pessoa
                 Dim sql As String
 
                 'Excluindo dados em uma planilha no banco de dados
-                sql = "DELETE FROM pessoa WHERE id = '" & tb_id.Text & "'"
+                sql = "DELETE FROM documentos WHERE id = '" & tb_id.Text & "'"
 
                 command = New MySqlCommand(sql, conexaodados)
                 command.ExecuteNonQuery()
@@ -190,19 +188,12 @@ Public Class cad_pessoa
     Private Sub Limpar()
 
         tb_id.Text = ""
-        tb_nome.Text = ""
-        tb_endereco.Text = ""
-        tb_cidade.Text = ""
-        tb_id.Text = ""
-        tb_nome.Text = ""
-        tb_endereco.Text = ""
-        tb_cidade.Text = ""
-        cb_estado.Text = ""
-        tb_cep.Text = ""
-        tb_email.Text = ""
-        tb_fone.Text = ""
-        tb_usuario.Text = ""
-        tb_senha.Text = ""
+        cb_id_pessoa.Text = ""
+        tb_cpf.Text = ""
+        tb_rg.Text = ""
+        tb_cnh.Text = ""
+        tb_eleitor.Text = ""
+        tb_passaport.Text = ""
 
     End Sub
 
@@ -211,6 +202,8 @@ Public Class cad_pessoa
 #Region "HABILITAR"
 
     Private Sub Habilitar()
+
+        CarregarNomes()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -251,35 +244,21 @@ Public Class cad_pessoa
 
         'Caixas de texto
         'tb_id.Enabled = True
-        tb_nome.Enabled = True
-        tb_endereco.Enabled = True
-        tb_cidade.Enabled = True
-        tb_id.Enabled = True
-        tb_nome.Enabled = True
-        tb_endereco.Enabled = True
-        tb_cidade.Enabled = True
-        cb_estado.Enabled = True
-        tb_cep.Enabled = True
-        tb_email.Enabled = True
-        tb_fone.Enabled = True
-        tb_usuario.Enabled = True
-        tb_senha.Enabled = True
+        cb_id_pessoa.Enabled = True
+        tb_cpf.Enabled = True
+        tb_rg.Enabled = True
+        tb_cnh.Enabled = True
+        tb_eleitor.Enabled = True
+        tb_passaport.Enabled = True
 
         'Cor do fundo
         tb_id.BackColor = Color.Salmon
-        tb_nome.BackColor = Color.Salmon
-        tb_endereco.BackColor = Color.Salmon
-        tb_cidade.BackColor = Color.Salmon
-        tb_id.BackColor = Color.Salmon
-        tb_nome.BackColor = Color.Salmon
-        tb_endereco.BackColor = Color.Salmon
-        tb_cidade.BackColor = Color.Salmon
-        cb_estado.BackColor = Color.Salmon
-        tb_cep.BackColor = Color.Salmon
-        tb_email.BackColor = Color.Salmon
-        tb_fone.BackColor = Color.Salmon
-        tb_usuario.BackColor = Color.Salmon
-        tb_senha.BackColor = Color.Salmon
+        cb_id_pessoa.BackColor = Color.Salmon
+        tb_cpf.BackColor = Color.Salmon
+        tb_rg.BackColor = Color.Salmon
+        tb_cnh.BackColor = Color.Salmon
+        tb_eleitor.BackColor = Color.Salmon
+        tb_passaport.BackColor = Color.Salmon
 
     End Sub
 
@@ -328,35 +307,21 @@ Public Class cad_pessoa
 
         'Caixas de texto
         'tb_id.Enabled = False
-        tb_nome.Enabled = False
-        tb_endereco.Enabled = False
-        tb_cidade.Enabled = False
-        tb_id.Enabled = False
-        tb_nome.Enabled = False
-        tb_endereco.Enabled = False
-        tb_cidade.Enabled = False
-        cb_estado.Enabled = False
-        tb_cep.Enabled = False
-        tb_email.Enabled = False
-        tb_fone.Enabled = False
-        tb_usuario.Enabled = False
-        tb_senha.Enabled = False
+        cb_id_pessoa.Enabled = False
+        tb_cpf.Enabled = False
+        tb_rg.Enabled = False
+        tb_cnh.Enabled = False
+        tb_eleitor.Enabled = False
+        tb_passaport.Enabled = False
 
         'Cor do fundo
         tb_id.BackColor = Color.LightGray
-        tb_nome.BackColor = Color.LightGray
-        tb_endereco.BackColor = Color.LightGray
-        tb_cidade.BackColor = Color.LightGray
-        tb_id.BackColor = Color.LightGray
-        tb_nome.BackColor = Color.LightGray
-        tb_endereco.BackColor = Color.LightGray
-        tb_cidade.BackColor = Color.LightGray
-        cb_estado.BackColor = Color.LightGray
-        tb_cep.BackColor = Color.LightGray
-        tb_email.BackColor = Color.LightGray
-        tb_fone.BackColor = Color.LightGray
-        tb_usuario.BackColor = Color.LightGray
-        tb_senha.BackColor = Color.LightGray
+        cb_id_pessoa.BackColor = Color.LightGray
+        tb_cpf.BackColor = Color.LightGray
+        tb_rg.BackColor = Color.LightGray
+        tb_cnh.BackColor = Color.LightGray
+        tb_eleitor.BackColor = Color.LightGray
+        tb_passaport.BackColor = Color.LightGray
 
     End Sub
 
@@ -377,7 +342,7 @@ Public Class cad_pessoa
             Dim dattable As New DataTable
             Dim datadapter As MySqlDataAdapter
 
-            sql = "SELECT * FROM pessoa ORDER BY nome ASC"
+            sql = "SELECT * FROM documentos ORDER BY id_pessoa ASC"
 
             datadapter = New MySqlDataAdapter(sql, conexaodados)
             datadapter.Fill(dattable)
@@ -402,15 +367,12 @@ Public Class cad_pessoa
 
         'Ajustar os títulos das colunas
         FormGrid.Columns(0).HeaderText = "Id"
-        FormGrid.Columns(1).HeaderText = "Nome"
-        FormGrid.Columns(2).HeaderText = "Endereço"
-        FormGrid.Columns(3).HeaderText = "Cidade"
-        FormGrid.Columns(4).HeaderText = "Estado"
-        FormGrid.Columns(5).HeaderText = "CEP"
-        FormGrid.Columns(6).HeaderText = "E-mail"
-        FormGrid.Columns(7).HeaderText = "Telefone"
-        FormGrid.Columns(8).HeaderText = "Usuário"
-        FormGrid.Columns(9).HeaderText = "Senha"
+        FormGrid.Columns(1).HeaderText = "Pessoa"
+        FormGrid.Columns(2).HeaderText = "CPF"
+        FormGrid.Columns(3).HeaderText = "RG"
+        FormGrid.Columns(4).HeaderText = "CNH"
+        FormGrid.Columns(5).HeaderText = "Título Eleitor"
+        FormGrid.Columns(6).HeaderText = "Passaport"
 
     End Sub
 
@@ -423,15 +385,47 @@ Public Class cad_pessoa
         Dim FormGrid = dt_grid_form
 
         tb_id.Text = FormGrid.CurrentRow.Cells(0).Value
-        tb_nome.Text = FormGrid.CurrentRow.Cells(1).Value
-        tb_endereco.Text = FormGrid.CurrentRow.Cells(2).Value
-        tb_cidade.Text = FormGrid.CurrentRow.Cells(3).Value
-        cb_estado.Text = FormGrid.CurrentRow.Cells(4).Value
-        tb_cep.Text = FormGrid.CurrentRow.Cells(5).Value
-        tb_email.Text = FormGrid.CurrentRow.Cells(6).Value
-        tb_fone.Text = FormGrid.CurrentRow.Cells(7).Value
-        tb_usuario.Text = FormGrid.CurrentRow.Cells(8).Value
-        tb_senha.Text = FormGrid.CurrentRow.Cells(9).Value
+        cb_id_pessoa.SelectedValue = FormGrid.CurrentRow.Cells(1).Value
+        tb_cpf.Text = FormGrid.CurrentRow.Cells(2).Value
+        tb_rg.Text = FormGrid.CurrentRow.Cells(3).Value
+        tb_cnh.Text = FormGrid.CurrentRow.Cells(4).Value
+        tb_eleitor.Text = FormGrid.CurrentRow.Cells(5).Value
+        tb_passaport.Text = FormGrid.CurrentRow.Cells(6).Value
+
+    End Sub
+
+#End Region
+
+#Region "COMBOBOX"
+
+    Private Sub CarregarNomes()
+        'Buscar informações da tabela no banco de dados e mostrar no ComboBox
+        Try
+            'Abrir conexão
+            Abrir()
+
+            Dim caixaTexto = cb_id_pessoa
+
+            Dim sql As String
+            Dim dattable As New DataTable
+            Dim datadapter As MySqlDataAdapter
+
+            sql = "SELECT * FROM pessoa ORDER BY nome ASC"
+
+            datadapter = New MySqlDataAdapter(sql, conexaodados)
+            datadapter.Fill(dattable)
+
+            If dattable.Rows.Count > 0 Then
+                caixaTexto.ValueMember = "id"           'O que aparece no SelectedValue
+                caixaTexto.DisplayMember = "nome"       'O que aparece no display do Combobox
+                caixaTexto.DataSource = dattable        'A lista da base de dados
+            Else
+                caixaTexto.Text = "Insira um nome no cadastro de 'Pessoa Física'."
+            End If
+
+        Catch ex As Exception
+            MsgBox("Erro ao mostrar dados no grid!! ERRO! " + ex.Message, MsgBoxStyle.Information, "Erro de processamento!")
+        End Try
 
     End Sub
 
@@ -480,5 +474,13 @@ Public Class cad_pessoa
     End Sub
 
 #End Region
+
+
+
+    Private Sub cb_id_pessoa_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cb_id_pessoa.SelectedIndexChanged
+
+        valor_id.Text = cb_id_pessoa.SelectedValue
+
+    End Sub
 
 End Class
