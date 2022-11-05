@@ -1,8 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class cad_pessoa
+Public Class cad_pagadores
 
-    Private Sub cad_pessoa_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub cad_pagadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dicas()
         Limpar()
@@ -12,7 +12,7 @@ Public Class cad_pessoa
 
     End Sub
 
-    Private Sub cad_pessoa_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+    Private Sub cad_pagadores_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 
         Dicas()
         Limpar()
@@ -96,7 +96,7 @@ Public Class cad_pessoa
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "INSERT INTO pessoa (nome, endereco, cidade, estado, cep, email, telefone, usuario, senha) VALUES ('" & tb_nome.Text & "', '" & tb_endereco.Text & "', '" & tb_cidade.Text & "', '" & cb_estado.Text & "', '" & tb_cep.Text & "', '" & tb_email.Text & "', '" & tb_fone.Text & "', '" & tb_usuario.Text & "', '" & tb_senha.Text & "')"
+            sql = "INSERT INTO pagadores (cnpj, rasaosocial, endereco, cidade, estado, cep, email, telefone, site, obs) VALUES ('" & tb_cnpj.Text & "', '" & tb_rasaosocial.Text & "', '" & tb_endereco.Text & "', '" & tb_cidade.Text & "', '" & cb_estado.Text & "', '" & tb_cep.Text & "', '" & tb_email.Text & "', '" & tb_telefone.Text & "', '" & tb_site.Text & "', '" & tb_obs.Text & "')"
 
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
@@ -110,7 +110,6 @@ Public Class cad_pessoa
         Catch ex As Exception
             MsgBox("Erro ao Salvar!! ERRO: " + ex.Message, MsgBoxStyle.Information, "Erro de processamento!")
         End Try
-
     End Sub
 
 #End Region
@@ -128,7 +127,7 @@ Public Class cad_pessoa
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "UPDATE  pessoa SET nome =  '" & tb_nome.Text & "', endereco =  '" & tb_endereco.Text & "', cidade =  '" & tb_cidade.Text & "', estado =  '" & cb_estado.Text & "', cep =  '" & tb_cep.Text & "', email =  '" & tb_email.Text & "', telefone =  '" & tb_fone.Text & "', usuario =  '" & tb_usuario.Text & "', senha = '" & tb_senha.Text & "'   WHERE id =  '" & tb_id.Text & "'"
+            sql = "UPDATE  pagadores SET cnpj = '" & tb_cnpj.Text & "', rasaosocial = '" & tb_rasaosocial.Text & "', endereco = '" & tb_endereco.Text & "', cidade = '" & tb_cidade.Text & "', estado = '" & cb_estado.SelectedValue & "', cep = '" & tb_cep.Text & "', email = '" & tb_email.Text & "', telefone = '" & tb_telefone.Text & "', site = '" & tb_site.Text & "', obs = '" & tb_obs.Text & "' WHERE id = '" & tb_id.Text & "'"
 
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
@@ -164,7 +163,7 @@ Public Class cad_pessoa
                 Dim sql As String
 
                 'Excluindo dados em uma planilha no banco de dados
-                sql = "DELETE FROM pessoa WHERE id = '" & tb_id.Text & "'"
+                sql = "DELETE FROM pagadores WHERE id = '" & tb_id.Text & "'"
 
                 command = New MySqlCommand(sql, conexaodados)
                 command.ExecuteNonQuery()
@@ -190,19 +189,16 @@ Public Class cad_pessoa
     Private Sub Limpar()
 
         tb_id.Text = ""
-        tb_nome.Text = ""
-        tb_endereco.Text = ""
-        tb_cidade.Text = ""
-        tb_id.Text = ""
-        tb_nome.Text = ""
+        tb_cnpj.Text = ""
+        tb_rasaosocial.Text = ""
         tb_endereco.Text = ""
         tb_cidade.Text = ""
         cb_estado.Text = ""
         tb_cep.Text = ""
         tb_email.Text = ""
-        tb_fone.Text = ""
-        tb_usuario.Text = ""
-        tb_senha.Text = ""
+        tb_telefone.Text = ""
+        tb_site.Text = ""
+        tb_obs.Text = ""
 
     End Sub
 
@@ -251,35 +247,29 @@ Public Class cad_pessoa
 
         'Caixas de texto
         'tb_id.Enabled = True
-        tb_nome.Enabled = True
-        tb_endereco.Enabled = True
-        tb_cidade.Enabled = True
-        tb_id.Enabled = True
-        tb_nome.Enabled = True
+        tb_cnpj.Enabled = True
+        tb_rasaosocial.Enabled = True
         tb_endereco.Enabled = True
         tb_cidade.Enabled = True
         cb_estado.Enabled = True
         tb_cep.Enabled = True
         tb_email.Enabled = True
-        tb_fone.Enabled = True
-        tb_usuario.Enabled = True
-        tb_senha.Enabled = True
+        tb_telefone.Enabled = True
+        tb_site.Enabled = True
+        tb_obs.Enabled = True
 
         'Cor do fundo
         tb_id.BackColor = Color.Salmon
-        tb_nome.BackColor = Color.Salmon
-        tb_endereco.BackColor = Color.Salmon
-        tb_cidade.BackColor = Color.Salmon
-        tb_id.BackColor = Color.Salmon
-        tb_nome.BackColor = Color.Salmon
+        tb_cnpj.BackColor = Color.Salmon
+        tb_rasaosocial.BackColor = Color.Salmon
         tb_endereco.BackColor = Color.Salmon
         tb_cidade.BackColor = Color.Salmon
         cb_estado.BackColor = Color.Salmon
         tb_cep.BackColor = Color.Salmon
         tb_email.BackColor = Color.Salmon
-        tb_fone.BackColor = Color.Salmon
-        tb_usuario.BackColor = Color.Salmon
-        tb_senha.BackColor = Color.Salmon
+        tb_telefone.BackColor = Color.Salmon
+        tb_site.BackColor = Color.Salmon
+        tb_obs.BackColor = Color.Salmon
 
     End Sub
 
@@ -328,35 +318,29 @@ Public Class cad_pessoa
 
         'Caixas de texto
         'tb_id.Enabled = False
-        tb_nome.Enabled = False
-        tb_endereco.Enabled = False
-        tb_cidade.Enabled = False
-        tb_id.Enabled = False
-        tb_nome.Enabled = False
+        tb_cnpj.Enabled = False
+        tb_rasaosocial.Enabled = False
         tb_endereco.Enabled = False
         tb_cidade.Enabled = False
         cb_estado.Enabled = False
         tb_cep.Enabled = False
         tb_email.Enabled = False
-        tb_fone.Enabled = False
-        tb_usuario.Enabled = False
-        tb_senha.Enabled = False
+        tb_telefone.Enabled = False
+        tb_site.Enabled = False
+        tb_obs.Enabled = False
 
         'Cor do fundo
         tb_id.BackColor = Color.LightGray
-        tb_nome.BackColor = Color.LightGray
-        tb_endereco.BackColor = Color.LightGray
-        tb_cidade.BackColor = Color.LightGray
-        tb_id.BackColor = Color.LightGray
-        tb_nome.BackColor = Color.LightGray
+        tb_cnpj.BackColor = Color.LightGray
+        tb_rasaosocial.BackColor = Color.LightGray
         tb_endereco.BackColor = Color.LightGray
         tb_cidade.BackColor = Color.LightGray
         cb_estado.BackColor = Color.LightGray
         tb_cep.BackColor = Color.LightGray
         tb_email.BackColor = Color.LightGray
-        tb_fone.BackColor = Color.LightGray
-        tb_usuario.BackColor = Color.LightGray
-        tb_senha.BackColor = Color.LightGray
+        tb_telefone.BackColor = Color.LightGray
+        tb_site.BackColor = Color.LightGray
+        tb_obs.BackColor = Color.LightGray
 
     End Sub
 
@@ -377,7 +361,7 @@ Public Class cad_pessoa
             Dim dattable As New DataTable
             Dim datadapter As MySqlDataAdapter
 
-            sql = "SELECT * FROM pessoa ORDER BY nome ASC"
+            sql = "SELECT * FROM pagadores ORDER BY rasaosocial ASC"
 
             datadapter = New MySqlDataAdapter(sql, conexaodados)
             datadapter.Fill(dattable)
@@ -401,16 +385,17 @@ Public Class cad_pessoa
         Dim FormGrid = dt_grid_form
 
         'Ajustar os títulos das colunas
-        FormGrid.Columns(0).HeaderText = "Id"
-        FormGrid.Columns(1).HeaderText = "Nome"
-        FormGrid.Columns(2).HeaderText = "Endereço"
-        FormGrid.Columns(3).HeaderText = "Cidade"
-        FormGrid.Columns(4).HeaderText = "Estado"
-        FormGrid.Columns(5).HeaderText = "CEP"
-        FormGrid.Columns(6).HeaderText = "E-mail"
-        FormGrid.Columns(7).HeaderText = "Telefone"
-        FormGrid.Columns(8).HeaderText = "Usuário"
-        FormGrid.Columns(9).HeaderText = "Senha"
+        FormGrid.Columns(0).HeaderText = "ID"
+        FormGrid.Columns(1).HeaderText = "CNPJ"
+        FormGrid.Columns(2).HeaderText = "Rasão Social"
+        FormGrid.Columns(3).HeaderText = "Endereço"
+        FormGrid.Columns(4).HeaderText = "Cidade"
+        FormGrid.Columns(5).HeaderText = "Estado"
+        FormGrid.Columns(6).HeaderText = "CEP"
+        FormGrid.Columns(7).HeaderText = "E-mail"
+        FormGrid.Columns(8).HeaderText = "Telefone"
+        FormGrid.Columns(9).HeaderText = "Site"
+        FormGrid.Columns(10).HeaderText = "Observações"
 
     End Sub
 
@@ -423,15 +408,16 @@ Public Class cad_pessoa
         Dim FormGrid = dt_grid_form
 
         tb_id.Text = FormGrid.CurrentRow.Cells(0).Value
-        tb_nome.Text = FormGrid.CurrentRow.Cells(1).Value
-        tb_endereco.Text = FormGrid.CurrentRow.Cells(2).Value
-        tb_cidade.Text = FormGrid.CurrentRow.Cells(3).Value
-        cb_estado.Text = FormGrid.CurrentRow.Cells(4).Value
-        tb_cep.Text = FormGrid.CurrentRow.Cells(5).Value
-        tb_email.Text = FormGrid.CurrentRow.Cells(6).Value
-        tb_fone.Text = FormGrid.CurrentRow.Cells(7).Value
-        tb_usuario.Text = FormGrid.CurrentRow.Cells(8).Value
-        tb_senha.Text = FormGrid.CurrentRow.Cells(9).Value
+        tb_cnpj.Text = FormGrid.CurrentRow.Cells(1).Value
+        tb_rasaosocial.Text = FormGrid.CurrentRow.Cells(2).Value
+        tb_endereco.Text = FormGrid.CurrentRow.Cells(3).Value
+        tb_cidade.Text = FormGrid.CurrentRow.Cells(4).Value
+        cb_estado.Text = FormGrid.CurrentRow.Cells(5).Value
+        tb_cep.Text = FormGrid.CurrentRow.Cells(6).Value
+        tb_email.Text = FormGrid.CurrentRow.Cells(7).Value
+        tb_telefone.Text = FormGrid.CurrentRow.Cells(8).Value
+        tb_site.Text = FormGrid.CurrentRow.Cells(9).Value
+        tb_obs.Text = FormGrid.CurrentRow.Cells(10).Value
 
     End Sub
 
@@ -480,5 +466,6 @@ Public Class cad_pessoa
     End Sub
 
 #End Region
+
 
 End Class

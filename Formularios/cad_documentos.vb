@@ -53,7 +53,7 @@ Public Class cad_documentos
     End Sub
 
     'Funcionalidade dos botões
-    Sub BotoesEstiloInicio()
+    Private Sub BotoesEstiloInicio()
         btn_menu_add_pt.Visible = True
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = False
@@ -62,7 +62,7 @@ Public Class cad_documentos
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloNovo()
+    Private Sub BotoesEstiloNovo()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = True
         btn_menu_edit_pt.Visible = False
@@ -71,7 +71,7 @@ Public Class cad_documentos
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloEditar()
+    Private Sub BotoesEstiloEditar()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = True
@@ -84,7 +84,7 @@ Public Class cad_documentos
 
 #Region "SALVAR"
 
-    Sub Salvar()
+    Private Sub Salvar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -115,7 +115,7 @@ Public Class cad_documentos
 
 #Region "EDITAR"
 
-    Sub Editar()
+    Private Sub Editar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -147,7 +147,7 @@ Public Class cad_documentos
 
 #Region "EXCLUIR"
 
-    Sub Excluir()
+    Private Sub Excluir()
         'Teste de condição para o botão excluir
         If MsgBox("Deseja excluir o registro?", vbYesNo, "Escolha a opção") = vbYes Then
 
@@ -162,7 +162,7 @@ Public Class cad_documentos
                 Dim sql As String
 
                 'Excluindo dados em uma planilha no banco de dados
-                sql = "DELETE FROM top_money.documentos WHERE id = '" & tb_id.Text & "'"
+                sql = "DELETE FROM documentos WHERE id = '" & tb_id.Text & "'"
 
                 command = New MySqlCommand(sql, conexaodados)
                 command.ExecuteNonQuery()
@@ -185,7 +185,7 @@ Public Class cad_documentos
 
 #Region "LIMPAR"
 
-    Sub Limpar()
+    Private Sub Limpar()
 
         tb_id.Text = ""
         cb_id_pessoa.Text = ""
@@ -201,7 +201,7 @@ Public Class cad_documentos
 
 #Region "HABILITAR"
 
-    Sub Habilitar()
+    Private Sub Habilitar()
 
         CarregarNomes()
 
@@ -266,7 +266,7 @@ Public Class cad_documentos
 
 #Region "DESABILITAR"
 
-    Sub Desabilitar()
+    Private Sub Desabilitar()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -329,7 +329,7 @@ Public Class cad_documentos
 
 #Region "DATA GRID"
 
-    Sub Listar()
+    Private Sub Listar()
 
         Try
 
@@ -361,7 +361,7 @@ Public Class cad_documentos
 
     End Sub
 
-    Sub FormatarGrid()
+    Private Sub FormatarGrid()
 
         Dim FormGrid = dt_grid_form
 
@@ -398,7 +398,6 @@ Public Class cad_documentos
 
 #Region "COMBOBOX"
 
-#End Region
     Private Sub CarregarNomes()
         'Buscar informações da tabela no banco de dados e mostrar no ComboBox
         Try
@@ -430,9 +429,11 @@ Public Class cad_documentos
 
     End Sub
 
+#End Region
+
 #Region "DICAS"
 
-    Sub Dicas()
+    Private Sub Dicas()
 
         'Exibe janelas de ajuda
         Dim toolTip As New ToolTip With {

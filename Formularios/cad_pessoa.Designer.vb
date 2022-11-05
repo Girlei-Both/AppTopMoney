@@ -23,7 +23,7 @@ Partial Class cad_pessoa
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(cad_pessoa))
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.lb_nome = New System.Windows.Forms.Label()
         Me.tb_nome = New System.Windows.Forms.TextBox()
         Me.tb_endereco = New System.Windows.Forms.TextBox()
@@ -34,7 +34,6 @@ Partial Class cad_pessoa
         Me.lb_email = New System.Windows.Forms.Label()
         Me.tb_cep = New System.Windows.Forms.TextBox()
         Me.lb_cep = New System.Windows.Forms.Label()
-        Me.tb_estado = New System.Windows.Forms.TextBox()
         Me.lb_estado = New System.Windows.Forms.Label()
         Me.tb_fone = New System.Windows.Forms.TextBox()
         Me.lb_fone = New System.Windows.Forms.Label()
@@ -59,6 +58,7 @@ Partial Class cad_pessoa
         Me.btn_menu_del_cz = New System.Windows.Forms.Button()
         Me.btn_menu_clean_cz = New System.Windows.Forms.Button()
         Me.btn_menu_add_cz = New System.Windows.Forms.Button()
+        Me.cb_estado = New System.Windows.Forms.ComboBox()
         CType(Me.dt_grid_form, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.form_menu.SuspendLayout()
         Me.SuspendLayout()
@@ -128,14 +128,6 @@ Partial Class cad_pessoa
         resources.ApplyResources(Me.lb_cep, "lb_cep")
         Me.lb_cep.Name = "lb_cep"
         '
-        'tb_estado
-        '
-        Me.tb_estado.BackColor = System.Drawing.Color.Salmon
-        Me.tb_estado.BorderStyle = System.Windows.Forms.BorderStyle.None
-        resources.ApplyResources(Me.tb_estado, "tb_estado")
-        Me.tb_estado.ForeColor = System.Drawing.Color.Snow
-        Me.tb_estado.Name = "tb_estado"
-        '
         'lb_estado
         '
         resources.ApplyResources(Me.lb_estado, "lb_estado")
@@ -164,14 +156,14 @@ Partial Class cad_pessoa
         Me.dt_grid_form.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
         Me.dt_grid_form.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable
         Me.dt_grid_form.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dt_grid_form.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Agency FB", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DeepSkyBlue
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dt_grid_form.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.dt_grid_form.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dt_grid_form.EnableHeadersVisualStyles = False
         Me.dt_grid_form.GridColor = System.Drawing.Color.WhiteSmoke
@@ -354,11 +346,21 @@ Partial Class cad_pessoa
         Me.btn_menu_add_cz.Name = "btn_menu_add_cz"
         Me.btn_menu_add_cz.UseVisualStyleBackColor = False
         '
+        'cb_estado
+        '
+        Me.cb_estado.BackColor = System.Drawing.Color.Salmon
+        resources.ApplyResources(Me.cb_estado, "cb_estado")
+        Me.cb_estado.ForeColor = System.Drawing.Color.Snow
+        Me.cb_estado.FormattingEnabled = True
+        Me.cb_estado.Items.AddRange(New Object() {resources.GetString("cb_estado.Items"), resources.GetString("cb_estado.Items1"), resources.GetString("cb_estado.Items2"), resources.GetString("cb_estado.Items3"), resources.GetString("cb_estado.Items4"), resources.GetString("cb_estado.Items5"), resources.GetString("cb_estado.Items6"), resources.GetString("cb_estado.Items7"), resources.GetString("cb_estado.Items8"), resources.GetString("cb_estado.Items9"), resources.GetString("cb_estado.Items10"), resources.GetString("cb_estado.Items11"), resources.GetString("cb_estado.Items12"), resources.GetString("cb_estado.Items13"), resources.GetString("cb_estado.Items14"), resources.GetString("cb_estado.Items15"), resources.GetString("cb_estado.Items16"), resources.GetString("cb_estado.Items17"), resources.GetString("cb_estado.Items18"), resources.GetString("cb_estado.Items19"), resources.GetString("cb_estado.Items20"), resources.GetString("cb_estado.Items21"), resources.GetString("cb_estado.Items22"), resources.GetString("cb_estado.Items23"), resources.GetString("cb_estado.Items24"), resources.GetString("cb_estado.Items25"), resources.GetString("cb_estado.Items26")})
+        Me.cb_estado.Name = "cb_estado"
+        '
         'cad_pessoa
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Snow
+        Me.Controls.Add(Me.cb_estado)
         Me.Controls.Add(Me.btn_menu_edit_pt)
         Me.Controls.Add(Me.btn_menu_save_pt)
         Me.Controls.Add(Me.btn_menu_relat_pt)
@@ -384,7 +386,6 @@ Partial Class cad_pessoa
         Me.Controls.Add(Me.lb_email)
         Me.Controls.Add(Me.tb_cep)
         Me.Controls.Add(Me.lb_cep)
-        Me.Controls.Add(Me.tb_estado)
         Me.Controls.Add(Me.lb_estado)
         Me.Controls.Add(Me.tb_cidade)
         Me.Controls.Add(Me.lb_cidade)
@@ -413,7 +414,6 @@ Partial Class cad_pessoa
     Friend WithEvents lb_email As Label
     Friend WithEvents tb_cep As TextBox
     Friend WithEvents lb_cep As Label
-    Friend WithEvents tb_estado As TextBox
     Friend WithEvents lb_estado As Label
     Friend WithEvents tb_fone As TextBox
     Friend WithEvents lb_fone As Label
@@ -438,4 +438,5 @@ Partial Class cad_pessoa
     Friend WithEvents btn_menu_del_cz As Button
     Friend WithEvents btn_menu_clean_cz As Button
     Friend WithEvents btn_menu_add_cz As Button
+    Friend WithEvents cb_estado As ComboBox
 End Class

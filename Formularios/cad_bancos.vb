@@ -26,9 +26,9 @@ Public Class cad_bancos
 
     'Ações dos botões primários
     Private Sub btn_menu_add_Click(sender As Object, e As EventArgs) Handles btn_menu_add_pt.Click
-        Limpar()
         BotoesEstiloNovo()
         Habilitar()
+        Limpar()
     End Sub
 
     Private Sub btn_menu_clean_Click(sender As Object, e As EventArgs) Handles btn_menu_clean_pt.Click
@@ -54,7 +54,7 @@ Public Class cad_bancos
     End Sub
 
     'Funcionalidade dos botões
-    Sub BotoesEstiloInicio()
+    Private Sub BotoesEstiloInicio()
         btn_menu_add_pt.Visible = True
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = False
@@ -63,7 +63,7 @@ Public Class cad_bancos
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloNovo()
+    Private Sub BotoesEstiloNovo()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = True
         btn_menu_edit_pt.Visible = False
@@ -72,7 +72,7 @@ Public Class cad_bancos
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloEditar()
+    Private Sub BotoesEstiloEditar()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = True
@@ -85,7 +85,7 @@ Public Class cad_bancos
 
 #Region "SALVAR"
 
-    Sub Salvar()
+    Private Sub Salvar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -97,6 +97,7 @@ Public Class cad_bancos
 
             'Inserir dados em uma planilha no banco de dados
             sql = "INSERT INTO bancos (cod, instituicao, cnpj, agencia, conta, operacao, tipo) VALUES ('" & tb_cod.Text & "', '" & tb_instituicao.Text & "', '" & tb_cnpj.Text & "', '" & tb_agencia.Text & "', '" & tb_conta.Text & "', '" & tb_operacao.Text & "', '" & cb_tipo.Text & "')"
+
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -115,7 +116,7 @@ Public Class cad_bancos
 
 #Region "EDITAR"
 
-    Sub Editar()
+    Private Sub Editar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -127,6 +128,7 @@ Public Class cad_bancos
 
             'Inserir dados em uma planilha no banco de dados
             sql = "UPDATE  bancos SET cod =  '" & tb_cod.Text & "', instituicao =  '" & tb_instituicao.Text & "', cnpj =  '" & tb_cnpj.Text & "', agencia =  '" & tb_agencia.Text & "', conta =  '" & tb_conta.Text & "', operacao =  '" & tb_operacao.Text & "', tipo =  '" & cb_tipo.Text & "' WHERE id =  '" & tb_id.Text & "'"
+
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -146,7 +148,7 @@ Public Class cad_bancos
 
 #Region "EXCLUIR"
 
-    Sub Excluir()
+    Private Sub Excluir()
         'Teste de condição para o botão excluir
         If MsgBox("Deseja excluir o registro?", vbYesNo, "Escolha a opção") = vbYes Then
 
@@ -159,8 +161,10 @@ Public Class cad_bancos
                 'Programando exclusão de registro no banco de dados
                 Dim command As MySqlCommand
                 Dim sql As String
+
                 'Excluindo dados em uma planilha no banco de dados
                 sql = "DELETE FROM bancos WHERE id = '" & tb_id.Text & "'"
+
                 command = New MySqlCommand(sql, conexaodados)
                 command.ExecuteNonQuery()
 
@@ -182,7 +186,7 @@ Public Class cad_bancos
 
 #Region "LIMPAR"
 
-    Sub Limpar()
+    Private Sub Limpar()
 
         tb_id.Text = ""
         tb_cod.Text = ""
@@ -199,7 +203,7 @@ Public Class cad_bancos
 
 #Region "HABILITAR"
 
-    Sub Habilitar()
+    Private Sub Habilitar()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -264,7 +268,7 @@ Public Class cad_bancos
 
 #Region "DESABILITAR"
 
-    Sub Desabilitar()
+    Private Sub Desabilitar()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -329,7 +333,7 @@ Public Class cad_bancos
 
 #Region "DATA GRID"
 
-    Sub Listar()
+    Private Sub Listar()
 
         Try
 
@@ -361,7 +365,7 @@ Public Class cad_bancos
 
     End Sub
 
-    Sub FormatarGrid()
+    Private Sub FormatarGrid()
 
         Dim FormGrid = dt_grid_form
 
@@ -400,7 +404,7 @@ Public Class cad_bancos
 
 #Region "DICAS"
 
-    Sub Dicas()
+    Private Sub Dicas()
 
         'Exibe janelas de ajuda
         Dim toolTip As New ToolTip With {

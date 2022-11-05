@@ -26,9 +26,9 @@ Public Class cad_pess_juridica
 
     'Ações dos botões primários
     Private Sub btn_menu_add_Click(sender As Object, e As EventArgs) Handles btn_menu_add_pt.Click
-        Limpar()
         BotoesEstiloNovo()
         Habilitar()
+        Limpar()
     End Sub
 
     Private Sub btn_menu_clean_Click(sender As Object, e As EventArgs) Handles btn_menu_clean_pt.Click
@@ -54,7 +54,7 @@ Public Class cad_pess_juridica
     End Sub
 
     'Funcionalidade dos botões
-    Sub BotoesEstiloInicio()
+    Private Sub BotoesEstiloInicio()
         btn_menu_add_pt.Visible = True
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = False
@@ -63,7 +63,7 @@ Public Class cad_pess_juridica
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloNovo()
+    Private Sub BotoesEstiloNovo()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = True
         btn_menu_edit_pt.Visible = False
@@ -72,7 +72,7 @@ Public Class cad_pess_juridica
         btn_menu_relat_pt.Visible = False
     End Sub
 
-    Sub BotoesEstiloEditar()
+    Private Sub BotoesEstiloEditar()
         btn_menu_add_pt.Visible = False
         btn_menu_save_pt.Visible = False
         btn_menu_edit_pt.Visible = True
@@ -85,7 +85,7 @@ Public Class cad_pess_juridica
 
 #Region "SALVAR"
 
-    Sub Salvar()
+    Private Sub Salvar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -96,7 +96,8 @@ Public Class cad_pess_juridica
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "INSERT INTO juridica (id_pessoa, cnpj, rasaosocial, endereco, cidade, estado, cep, email, site, obs) VALUES ('" & cb_id_pessoa.Text & "', '" & tb_cnpj.Text & "', '" & lb_rasaosocial.Text & "', '" & tb_endereco.Text & "', '" & tb_cidade.Text & "', '" & cb_estado.Text & "', '" & tb_cep.Text & "', '" & tb_email.Text & "', '" & tb_site.Text & "', '" & tb_obs.Text & "')"
+            sql = "INSERT INTO juridica (id_pessoa, cnpj, rasaosocial, endereco, cidade, estado, cep, email, site, obs) VALUES ('" & cb_id_pessoa.SelectedValue & "', '" & tb_cnpj.Text & "', '" & tb_rasaosocial.Text & "', '" & tb_endereco.Text & "', '" & tb_cidade.Text & "', '" & cb_estado.Text & "', '" & tb_cep.Text & "', '" & tb_email.Text & "', '" & tb_site.Text & "', '" & tb_obs.Text & "')"
+
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -116,7 +117,7 @@ Public Class cad_pess_juridica
 
 #Region "EDITAR"
 
-    Sub Editar()
+    Private Sub Editar()
         'Tratamento de erros durante o desenvolvimento do sistema
         Try
             'Abrindo a conexão
@@ -127,7 +128,8 @@ Public Class cad_pess_juridica
             Dim sql As String
 
             'Inserir dados em uma planilha no banco de dados
-            sql = "UPDATE  juridica SET id_pessoa =  '" & cb_id_pessoa.Text & "', cnpj =  '" & tb_cnpj.Text & "', rasaosocial =  '" & tb_rasaosocial.Text & "', endereco =  '" & tb_endereco.Text & "', cidade =  '" & tb_cidade.Text & "', estado =  '" & cb_estado.Text & "', cep =  '" & tb_cep.Text & "', email =  '" & tb_email.Text & "', site =  '" & tb_site.Text & "', obs =  '" & tb_obs.Text & "' WHERE id =  '" & tb_id.Text & "'"
+            sql = "UPDATE  juridica SET id_pessoa =  '" & cb_id_pessoa.SelectedValue & "', cnpj =  '" & tb_cnpj.Text & "', rasaosocial =  '" & tb_rasaosocial.Text & "', endereco =  '" & tb_endereco.Text & "', cidade =  '" & tb_cidade.Text & "', estado =  '" & cb_estado.Text & "', cep =  '" & tb_cep.Text & "', email =  '" & tb_email.Text & "', site =  '" & tb_site.Text & "', obs =  '" & tb_obs.Text & "' WHERE id =  '" & tb_id.Text & "'"
+
             command = New MySqlCommand(sql, conexaodados)
             command.ExecuteNonQuery()
 
@@ -147,7 +149,7 @@ Public Class cad_pess_juridica
 
 #Region "EXCLUIR"
 
-    Sub Excluir()
+    Private Sub Excluir()
         'Teste de condição para o botão excluir
         If MsgBox("Deseja excluir o registro?", vbYesNo, "Escolha a opção") = vbYes Then
 
@@ -160,8 +162,10 @@ Public Class cad_pess_juridica
                 'Programando exclusão de registro no banco de dados
                 Dim command As MySqlCommand
                 Dim sql As String
+
                 'Excluindo dados em uma planilha no banco de dados
                 sql = "DELETE FROM juridica WHERE id = '" & tb_id.Text & "'"
+
                 command = New MySqlCommand(sql, conexaodados)
                 command.ExecuteNonQuery()
 
@@ -183,7 +187,7 @@ Public Class cad_pess_juridica
 
 #Region "LIMPAR"
 
-    Sub Limpar()
+    Private Sub Limpar()
 
         tb_id.Text = ""
         cb_id_pessoa.Text = ""
@@ -203,7 +207,9 @@ Public Class cad_pess_juridica
 
 #Region "HABILITAR"
 
-    Sub Habilitar()
+    Private Sub Habilitar()
+
+        CarregarNomes()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -274,7 +280,7 @@ Public Class cad_pess_juridica
 
 #Region "DESABILITAR"
 
-    Sub Desabilitar()
+    Private Sub Desabilitar()
 
         'Botões
         If btn_menu_add_pt.Visible = True Then
@@ -345,7 +351,7 @@ Public Class cad_pess_juridica
 
 #Region "DATA GRID"
 
-    Sub Listar()
+    Private Sub Listar()
 
         Try
 
@@ -377,7 +383,7 @@ Public Class cad_pess_juridica
 
     End Sub
 
-    Sub FormatarGrid()
+    Private Sub FormatarGrid()
 
         Dim FormGrid = dt_grid_form
 
@@ -405,7 +411,7 @@ Public Class cad_pess_juridica
         Dim FormGrid = dt_grid_form
 
         tb_id.Text = FormGrid.CurrentRow.Cells(0).Value
-        cb_id_pessoa.Text = FormGrid.CurrentRow.Cells(1).Value
+        cb_id_pessoa.SelectedValue = FormGrid.CurrentRow.Cells(1).Value
         tb_cnpj.Text = FormGrid.CurrentRow.Cells(2).Value
         tb_rasaosocial.Text = FormGrid.CurrentRow.Cells(3).Value
         tb_endereco.Text = FormGrid.CurrentRow.Cells(4).Value
@@ -420,9 +426,44 @@ Public Class cad_pess_juridica
 
 #End Region
 
+#Region "COMBOBOX"
+
+    Private Sub CarregarNomes()
+        'Buscar informações da tabela no banco de dados e mostrar no ComboBox
+        Try
+            'Abrir conexão
+            Abrir()
+
+            Dim caixaTexto = cb_id_pessoa
+
+            Dim sql As String
+            Dim dattable As New DataTable
+            Dim datadapter As MySqlDataAdapter
+
+            sql = "SELECT * FROM pessoa ORDER BY nome ASC"
+
+            datadapter = New MySqlDataAdapter(sql, conexaodados)
+            datadapter.Fill(dattable)
+
+            If dattable.Rows.Count > 0 Then
+                caixaTexto.ValueMember = "id"           'O que aparece no SelectedValue
+                caixaTexto.DisplayMember = "nome"       'O que aparece no display do Combobox
+                caixaTexto.DataSource = dattable        'A lista da base de dados
+            Else
+                caixaTexto.Text = "Insira um nome no cadastro de 'Pessoa Física'."
+            End If
+
+        Catch ex As Exception
+            MsgBox("Erro ao mostrar dados no grid!! ERRO! " + ex.Message, MsgBoxStyle.Information, "Erro de processamento!")
+        End Try
+
+    End Sub
+
+#End Region
+
 #Region "DICAS"
 
-    Sub Dicas()
+    Private Sub Dicas()
 
         'Exibe janelas de ajuda
         Dim toolTip As New ToolTip With {

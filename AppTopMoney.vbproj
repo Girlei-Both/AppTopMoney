@@ -155,6 +155,24 @@
     <Compile Include="Formularios\cad_documentos.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Formularios\cad_fornecedores.Designer.vb">
+      <DependentUpon>cad_fornecedores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\cad_fornecedores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\cad_gasto_mes.Designer.vb">
+      <DependentUpon>cad_gasto_mes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\cad_gasto_mes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\cad_pagadores.Designer.vb">
+      <DependentUpon>cad_pagadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\cad_pagadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Formularios\cad_pessoa.Designer.vb">
       <DependentUpon>cad_pessoa.vb</DependentUpon>
     </Compile>
@@ -202,6 +220,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\cad_documentos.resx">
       <DependentUpon>cad_documentos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\cad_fornecedores.resx">
+      <DependentUpon>cad_fornecedores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\cad_gasto_mes.resx">
+      <DependentUpon>cad_gasto_mes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\cad_pagadores.resx">
+      <DependentUpon>cad_pagadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\cad_pessoa.resx">
       <DependentUpon>cad_pessoa.vb</DependentUpon>
